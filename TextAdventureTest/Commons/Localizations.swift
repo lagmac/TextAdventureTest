@@ -229,6 +229,7 @@ enum localizedActions: Int
     case close = 5
     case read = 6
     case use = 7
+    case attack = 8
     
     var localized: String
     {
@@ -248,6 +249,8 @@ enum localizedActions: Int
             return NSLocalizedString("ACTION_READ", comment: "")
         case .use:
             return NSLocalizedString("ACTION_USE", comment: "")
+        case .attack:
+            return NSLocalizedString("ACTION_ATTACK", comment: "")
         }
     }
 }

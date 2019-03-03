@@ -123,10 +123,10 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
             roomObject.stringRange = characterRange
             self.selectedObject = roomObject
             
-            if let roc = selectedObject!.characteristic
-            {
-                self.updatePlayerCharacteristics(withValue: roc)
-            }
+//            if let roc = selectedObject!.characteristic
+//            {
+//                self.updatePlayerCharacteristics(withValue: roc)
+//            }
             
             scene?.responseRoomObjectRequest(selectedObject!)
         }
@@ -176,6 +176,10 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
             switch action.id!
             {
             case RoomData.ACTION_ID_$A2:
+                if let roc = selectedObject!.characteristic
+                {
+                    self.updatePlayerCharacteristics(withValue: roc)
+                }
                 addObjectToPlayerInventory()
                 room.updateDescription(selectedObject!)
                 addVisitedRoom()
@@ -184,6 +188,9 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                 break
             case RoomData.ACTION_ID_$A3:
                 removeObjectFromPlayerInventory()
+                break
+            case RoomData.ACTION_ID_$A8:
+                    scene?.responseToHitEnemy(withOutcome: "HIT ENEMY !!!")
                 break
             default:
                 break

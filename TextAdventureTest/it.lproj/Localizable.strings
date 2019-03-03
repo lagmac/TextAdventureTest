@@ -50,6 +50,7 @@ ACTION_EXAMINES = "Esamina";
 ACTION_CLOSE = "Chiudi";
 ACTION_READ = "Leggi";
 ACTION_USE = "Usa";
+ACTION_ATTACK = "Attacca";
 
 NORTH_DIRECTION = "Nord";
 EAST_DIRECTION = "Est";
@@ -78,6 +79,7 @@ OBJECT_DOOR = "porta";
 OBJECT_SHEET = "foglio";
 OBJECT_NAIL = "chiodo";
 OBJECT_BOTTLE = "bottiglia";
+OBJECT_CREATURE = "creatura";
 
 OF_LABEL = " di ";
 NOT_AVAILABLE = "N/D";
