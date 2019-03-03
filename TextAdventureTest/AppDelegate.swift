@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var audioManager: AudioManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        bootstrap()
+        
         return true
     }
 
@@ -40,7 +44,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    private func bootstrap()
+    {
+        setCurrentLanguage()
+        initAudioPlayer()
+    }
 
-
+    private func setCurrentLanguage()
+    {
+        if let language = Locale.current.languageCode
+        {
+            if language == GlobalConstants.ITALIAN
+            {
+                PreferencesManager.setLanguage(language)
+            }
+            else
+            {
+                PreferencesManager.setLanguage(GlobalConstants.ENGLISH)
+            }
+        }
+        else
+        {
+            PreferencesManager.setLanguage(GlobalConstants.ENGLISH)
+        }
+    }
+    
+    private func initAudioPlayer()
+    {
+        if PreferencesManager.getAudioEnabled() == nil
+        {
+            PreferencesManager.setAudioEnabled(true)
+        }
+        
+        audioManager = AudioManager()
+        audioManager?.loadMainTheme()
+    }
 }
+
 

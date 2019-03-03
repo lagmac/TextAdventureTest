@@ -1,0 +1,111 @@
+
+/* Class = "UILabel"; text = "Sesso:"; ObjectID = "2XI-Za-l5B"; */
+"2XI-Za-l5B.text" = "Gender:";
+
+/* Class = "UILabel"; text = "Ver 1.0  (01D27LX18)"; ObjectID = "9s0-1n-KJY"; */
+"9s0-1n-KJY.text" = "Ver 1.0  (01E25AX19)";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "BuD-gu-dgh"; */
+"BuD-gu-dgh.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Gold: 100000"; ObjectID = "CqD-Jm-m6Q"; */
+"CqD-Jm-m6Q.text" = "Gold: 100000";
+
+/* Class = "UISegmentedControl"; Djr-aW-opg.segmentTitles[0] = "Uomo"; ObjectID = "Djr-aW-opg"; */
+"Djr-aW-opg.segmentTitles[0]" = "Man";
+
+/* Class = "UISegmentedControl"; Djr-aW-opg.segmentTitles[1] = "Donna"; ObjectID = "Djr-aW-opg"; */
+"Djr-aW-opg.segmentTitles[1]" = "Woman";
+
+/* Class = "UILabel"; text = "Exp: 10000"; ObjectID = "E4O-5N-TRL"; */
+"E4O-5N-TRL.text" = "Exp: 10000";
+
+/* Class = "UITextField"; placeholder = "inserire l'età"; ObjectID = "EAD-nD-3xL"; */
+"EAD-nD-3xL.placeholder" = "insert age";
+
+/* Class = "UILabel"; text = "Ver 1.0  (01D27LX18)"; ObjectID = "EOy-OG-OQx"; */
+"EOy-OG-OQx.text" = "Ver 1.0  (01E25AX19)";
+
+/* Class = "UILabel"; text = "Hp: 1000"; ObjectID = "HLm-P4-wo4"; */
+"HLm-P4-wo4.text" = "Hp: 1000";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JJ9-7i-SFR"; */
+"JJ9-7i-SFR.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "inserire un nome"; ObjectID = "JLk-bW-WBU"; */
+"JLk-bW-WBU.placeholder" = "inset a name";
+
+/* Class = "UITextField"; placeholder = "scegliere una razza"; ObjectID = "XXa-wz-sNC"; */
+"XXa-wz-sNC.placeholder" = "select a race";
+
+/* Class = "UIButton"; normalTitle = "Inventario < 0 >"; ObjectID = "ZZh-ev-va6"; */
+"ZZh-ev-va6.normalTitle" = "Inventory < 0 >";
+
+/* Class = "UIButton"; normalTitle = "Annulla"; ObjectID = "aQ3-2Y-7xj"; */
+"aQ3-2Y-7xj.normalTitle" = "Discard";
+
+/* Class = "UIButton"; normalTitle = "Inizia Avventura"; ObjectID = "bC1-UA-4vQ"; */
+"bC1-UA-4vQ.normalTitle" = "Start Adventure";
+
+/* Class = "UILabel"; text = "Nome:"; ObjectID = "bHS-cw-n2t"; */
+"bHS-cw-n2t.text" = "Name:";
+
+/* Class = "UILabel"; text = "Razza:"; ObjectID = "bxN-Il-2tr"; */
+"bxN-Il-2tr.text" = "Race:";
+
+/* Class = "UILabel"; text = "Ver 1.0  (01D27LX18)"; ObjectID = "gRQ-Xt-sRG"; */
+"gRQ-Xt-sRG.text" = "Ver 1.0  (01E25AX19)";
+
+/* Class = "UILabel"; text = "CREAZIONE PERSONAGGIO"; ObjectID = "i6N-qs-0b4"; */
+"i6N-qs-0b4.text" = "CHARACTER CREATION";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "u02-64-D2b"; */
+"u02-64-D2b.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Lvl: 64"; ObjectID = "v9X-tP-ZhC"; */
+"v9X-tP-ZhC.text" = "Lvl: 64";
+
+/* Class = "UILabel"; text = "Età:"; ObjectID = "vie-ek-ARz"; */
+"vie-ek-ARz.text" = "Age:";
+
+/* Class = "UIButton"; normalTitle = "Crea Personaggio"; ObjectID = "wWL-3r-Z1e"; */
+"wWL-3r-Z1e.normalTitle" = "Create character";
+
+/* Class = "UIButton"; normalTitle = "Conferma"; ObjectID = "xwh-jO-3cR"; */
+"xwh-jO-3cR.normalTitle" = "Confirm";
+
+/* Class = "UILabel"; text = "The Textual Adventure"; ObjectID = "ehr-2y-n6p"; */
+"ehr-2y-n6p.text" = "The Textual Adventure";
+
+/* Class = "UILabel"; text = "Chapter #1 - Upside down"; ObjectID = "XM4-F0-qTb"; */
+"XM4-F0-qTb.text" = "Chapter 1";
+
+/* Class = "UILabel"; text = "Statistics"; ObjectID = "ZXc-96-tqY"; */
+"ZXc-96-tqY.text" = "Statistics";
+
+/* Class = "UILabel"; text = "Game time:"; ObjectID = "6X1-gS-tZS"; */
+"6X1-gS-tZS.text" = "Game time:";
+
+/* Class = "UILabel"; text = "Visited rooms:"; ObjectID = "deL-aU-2ba"; */
+"deL-aU-2ba.text" = "Visited rooms:";
+
+/* Class = "UILabel"; text = "Level:"; ObjectID = "2Sy-JV-YPO"; */
+"2Sy-JV-YPO.text" = "Level:";
+
+/* Class = "UILabel"; text = "Experience:"; ObjectID = "Pe9-Q0-KYt"; */
+"Pe9-Q0-KYt.text" = "Experience:";
+
+/* Class = "UILabel"; text = "Gold:"; ObjectID = "bjt-Ut-OQk"; */
+"bjt-Ut-OQk.text" = "Gold:";
+
+/* Class = "UILabel"; text = "Treasures founds:"; ObjectID = "Ph8-bq-vCh"; */
+"Ph8-bq-vCh.text" = "Treasures found:";
+
+/* Class = "UILabel"; text = "Health"; ObjectID = "ZlU-79-URy"; */
+"ZlU-79-URy.text" = "Health";
+
+/* Class = "UILabel"; text = "Strenght"; ObjectID = "h7s-YE-cdP"; */
+"h7s-YE-cdP.text" = "Strenght";
+
+/* Class = "UILabel"; text = "Tiredness"; ObjectID = "Htd-dA-emV"; */
+"Htd-dA-emV.text" = "Tiredness";

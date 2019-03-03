@@ -1,0 +1,90 @@
+/* 
+  Localizable.strings
+  TextAdventureTest
+
+  Created by Gino Preti on 15/01/2019.
+  Copyright © 2019 Gino Preti. All rights reserved.
+*/
+
+APP_VERSION =  "";
+
+INVALID_ACTION = "Invalid action.";
+INVENTORY_FULL = "Inventory full.";
+OBJECT_ALEADY_IN_INVENTORY = "The object has already added to the inventory.";
+OBJECT_ADDED_TO_INVENTOYR = "The object has been added to the inventory.";
+OBJECT_REMOVED_FROM_INVENTORY = "The object has been removed from inventory.";
+OBJECT_USED = "You have used the object.";
+GAME_SAVED = "Game saved.";
+QUITS_GAME = "\nDo you want to quits the ongoing adventure ?";
+
+ACTION_SELECTOR_TITLE = "What are you doing ?";
+ACTION_SELECTOR_INVALID_ACTION = "Discard";
+ACTION_SELECTOR_QUITS_ACTION = "Quites";
+ACTION_SELECTOR_QUITS_AND_SAVE_ACTION = "Quites and save";
+
+LOADING_OPTIONS_SELECTOR_TITLE = "LOADING OPTIONS";
+LOADING_OPTIONS_SELECTOR_START_NEW_GAME = "Start new adventure";
+LOADING_OPTIONS_SELECTOR_LOAD_SAVED_GAME = "Continue saved adventure";
+LOADING_OPTIONS_SELECTOR_DISCARD = "Discard";
+
+SETTINGS_OPTIONS_TITLE = "GAME OPTIONS";
+SETTINGS_OPTIONS_AUDIO_ON = "Enable audio";
+SETTINGS_OPTIONS_AUDIO_OFF = "Disable audio";
+SETTINGS_OPTIONS_STATISTIC = "Statistic";
+SETTINGS_OPTIONS_SELECTOR_DISCARD = "Discard";
+
+GENDER_MALE = "Man";
+GENDER_FEMALE = "Woman";
+
+TITLE_INVENTORY = "Inventory";
+TITLE_GOLD = "Gold:";
+TITLE_EXP = "Exp:";
+TITLE_HP = "Hp:";
+TITLE_LEVEL = "Lvl:";
+TITLE_GAME_TITLE = "The Textual Adventure";
+
+ACTION_OPEN = "Open";
+ACTION_GET = "Get";
+ACTION_DROP = "Drop";
+ACTION_EXAMINES = "Examines";
+ACTION_CLOSE = "Close";
+ACTION_READ = "Read";
+ACTION_USE = "Use";
+
+NORTH_DIRECTION = "North";
+EAST_DIRECTION = "East";
+SOUTH_DIRECTION = "South";
+WEST_DIRECTION = "West";
+
+RESPONSE_OPENING_DOOR = "You've open the door.";
+RESPONSE_CLOSING_DOOR = "You've close the door.";
+RESPONSE_WOODEN_WALNUT_DOOR = "The door is made of walnut wood.";
+RESPONSE_DOOR_ALREADY_OPEN = "The door is already open.";
+RESPONSE_DOOR_ALREADY_CLOSED = "The door is already closed.";
+RESPONSE_SHEET_ON_DOOR = "Attaccato alla porta c'è un foglio.";
+RESPONSE_DOOR_KEY_LOCKED = "The door is locked.";
+RESPONSE_NAIL_TAKE = "You have take a nail.";
+RESPONSE_NAIL_RUSTY = "The nail is rusty and curved.";
+RESPONSE_SHEET_TAKE = "You have take the sheet.";
+RESPONSE_SHEET_WORDS = "Sul foglio ci sono scritte alcune parole.";
+RESPONSE_SHETT_STRANGE_CHARS = "Le parole sono scritte con starni caratteri e non riesco a leggerle.";
+RESPONSE_BOTTLE_TAKE = "You have take the bottle.";
+RESPONSE_WATER_IN_BOTTLE = "The liquid in the bottle is water.";
+RESPONSE_OBJECT_USED = "You have used the object.";
+RESPONSE_OBJECT_REMOVED_FROM_INVENTORY = "The object has been removed from inventory.";
+
+OBJECT_DOOR = "door";
+OBJECT_SHEET = "sheet";
+OBJECT_NAIL = "nail";
+OBJECT_BOTTLE = "bottle";
+
+OF_LABEL = " of ";
+NOT_AVAILABLE = "N/A";
+DEFAULT_STATISTIC_TIME = "0h 00min";
+
+NO_DATA_TO_PARSE = "No data to parse !!!";
+UNABLE_PREPARE_DATA = "Unable to prepare data for parsing !!!";
+PARSE_GENERIC_ERROR = "AN error was occurred on data parsing !!!";
+
+ALERT_ERROR_TITLE = "FATAL ERROR";
+ALERT_ERROR_GENERIC_MESSAGE = "An error was occurred. Unable to continue.";
