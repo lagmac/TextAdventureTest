@@ -190,7 +190,8 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                 removeObjectFromPlayerInventory()
                 break
             case RoomData.ACTION_ID_$A8:
-                    scene?.responseToHitEnemy(withOutcome: "HIT ENEMY !!!")
+                self.scheduleTirednessTimer(false)
+                    scene?.responseToHitEnemy(withOutcome: NSLocalizedString("RESPONSE_START_ATTACK", comment: ""))
                 break
             default:
                 break

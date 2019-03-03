@@ -73,7 +73,7 @@ RESPONSE_BOTTLE_TAKE = "Hai preso la bottiglia.";
 RESPONSE_WATER_IN_BOTTLE = "Il liquido nella bottiglia è acqua.";
 RESPONSE_OBJECT_USED = "Hai usato l'oggetto.";
 RESPONSE_OBJECT_REMOVED_FROM_INVENTORY = "L'oggetto è stato rimosso dall'inventario.";
-
+RESPONSE_START_ATTACK = "Combattimento iniziato.";
 
 OBJECT_DOOR = "porta";
 OBJECT_SHEET = "foglio";
