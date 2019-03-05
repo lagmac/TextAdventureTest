@@ -52,6 +52,7 @@ enum localizedResponses: Int
     case r14 = 14
     case r15 = 15
     case r16 = 16
+    case r17 = 17
     
     var localized: String
     {
@@ -89,6 +90,8 @@ enum localizedResponses: Int
             return NSLocalizedString("RESPONSE_OBJECT_USED", comment: "")
         case .r16:
             return NSLocalizedString("RESPONSE_OBJECT_REMOVED_FROM_INVENTORY", comment: "")
+        case .r17:
+            return NSLocalizedString("RESPONSE_START_COMBAT", comment: "")
         }
     }
 }
@@ -162,6 +165,7 @@ struct RoomData
     static let RESPONSE_ID_$R14 = "$R14"
     static let RESPONSE_ID_$R15 = "$R15"
     static let RESPONSE_ID_$R16 = "$R16"
+    static let RESPONSE_ID_$R17 = "$R17"
     
     static let responses: [[String : String]] = [["id" : RoomData.RESPONSE_ID_$R1, "value" : localizedResponses.r1.localized],
                                                  ["id" : RoomData.RESPONSE_ID_$R2, "value" : localizedResponses.r2.localized],
@@ -178,7 +182,8 @@ struct RoomData
                                                  ["id" : RoomData.RESPONSE_ID_$R13, "value" : localizedResponses.r13.localized],
                                                  ["id" : RoomData.RESPONSE_ID_$R14, "value" : localizedResponses.r14.localized],
                                                  ["id" : RoomData.RESPONSE_ID_$R15, "value" : localizedResponses.r15.localized],
-                                                 ["id" : RoomData.RESPONSE_ID_$R16, "value" : localizedResponses.r16.localized]]
+                                                 ["id" : RoomData.RESPONSE_ID_$R16, "value" : localizedResponses.r16.localized],
+                                                 ["id" : RoomData.RESPONSE_ID_$R17, "value" : localizedResponses.r17.localized]]
     
     // MARK: CHARACTERISTICS
     static let CHARACTERISTIC_ID_$C1 = "$C1"
@@ -189,7 +194,7 @@ struct RoomData
     static let characteristics: [[String : Any]] = [["id" : RoomData.CHARACTERISTIC_ID_$C1, "value" : ["exp" : 10, "hp" : 2, "gold" : 5]],
                                                     ["id" : RoomData.CHARACTERISTIC_ID_$C2, "value" : ["exp" : 2, "hp" : 0, "gold" : 3]],
                                                     ["id" : RoomData.CHARACTERISTIC_ID_$C3, "value" : ["exp" : 2, "hp" : 3, "gold" : 0]],
-                                                    ["id" : RoomData.CHARACTERISTIC_ID_$C4, "value" : ["exp" : 8, "hp" : 5, "gold" : 12]]]
+                                                    ["id" : RoomData.CHARACTERISTIC_ID_$C4, "value" : ["exp" : 10, "hp" : 5, "gold" : 12]]]
     
     // MARK: DIRECTIONS
     static let DIRECTION_ID_$N = "$N"

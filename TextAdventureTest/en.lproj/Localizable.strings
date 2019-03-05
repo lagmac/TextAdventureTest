@@ -73,8 +73,13 @@ RESPONSE_BOTTLE_TAKE = "You have take the bottle.";
 RESPONSE_WATER_IN_BOTTLE = "The liquid in the bottle is water.";
 RESPONSE_OBJECT_USED = "You have used the object.";
 RESPONSE_OBJECT_REMOVED_FROM_INVENTORY = "The object has been removed from inventory.";
+RESPONSE_START_COMBAT = "COMBAT STARTED";
 RESPONSE_HIT_ENEMY = "ENEMY HIT !!!";
 RESPONSE_MISSED_ENEMY = "ENEMY MISSED !!!";
+RESPONSE_HIT_PLAYER = "PLAYER HIT !!!";
+RESPONSE_MISSED_PLAYER = "PLAYER MISSED !!!";
+RESPONSE_FINISHED_COMBAT_WIN = "Combat finished. You defeated the creature.";
+RESPONSE_FINISHED_COMBACT_LOOSE = "Combat finished. You've been defeated.";
 
 OBJECT_DOOR = "door";
 OBJECT_SHEET = "sheet";

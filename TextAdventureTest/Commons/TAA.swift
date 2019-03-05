@@ -149,28 +149,37 @@ public class TAA
         let hit = PlayerData.MAX_TIREDNESS - playerTiredness
         let eva = playerTiredness
         
-        let hitChance = hit * (PlayerData.MAX_TIREDNESS - eva) * 100
+        let hitChance = round(hit * (PlayerData.MAX_TIREDNESS - eva) * 100)
         
-        var hitEnemy: Bool = false
+        return RollDice(hitChance)
+    }
+    
+    class func CaluclateEvadeChance(fromPlayerHealth playerHealth: Float) -> Bool
+    {
+        let hit = playerHealth
+        let eva = PlayerData.MAX_HEALTH - playerHealth
+
+        let evadeChance = round(hit * (PlayerData.MAX_HEALTH - eva) * 100)
+
+        return  RollDice(evadeChance)
+    }
+    
+    private class func RollDice(_ value:Float) -> Bool
+    {
+        var rolls: Int = 0
         
-        for _ in GlobalConstants.INT_ZERO..<Int(hitChance)
+        let gkr = GKRandomDistribution.d20()
+        
+        for _ in 0..<Int(value)
         {
-            let rool = GKShuffledDistribution.d6().nextInt()
+            let roll = gkr.nextInt()
             
-            if hitEnemy == false && rool == GlobalConstants.D6_DICE_MAX
+            if roll == GlobalConstants.D6_DICE_MAX
             {
-                hitEnemy = true
+                rolls.increment(byValue: 1)
             }
         }
         
-        return hitEnemy
-    }
-    
-    class func CaluclateEvadeChance(fromPlayerHealth playerhelath: Float) -> Bool
-    {
-        var evade: Bool = false
-        
-        
-        return evade
+        return rolls > 0
     }
 }

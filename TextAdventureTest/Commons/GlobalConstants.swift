@@ -19,6 +19,7 @@ struct GlobalConstants
     static let TIREDNESS_UPDATE_INTERVAL: TimeInterval = 21.0
     static let TIREDNESS_RECHARGE_INTERVAL: TimeInterval = 90.0
     static let D6_DICE_MAX: Int = 6
+    static let BATTLE_SYSTEM_MAX_TURNS_NUMBERS: Int = 10
     
     static let ITALIAN: String = "it"
     static let ENGLISH: String = "en"

@@ -95,7 +95,6 @@ class MainScenePresenter: MainScenePresentLogic
             let action = UIAlertAction(title: objectAction.name!, style: .default) { (action) in
                 
                 self.interactor?.requestResponse(forAction: objectAction)
-                self.interactor?.resetSelectedObject()
             }
             
             action.setValue(FontStyles.actionSheetMessageFontColor, forKey: AlertAttibutesKeys.TITLE_TEXT_COLOR)

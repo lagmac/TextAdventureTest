@@ -122,12 +122,7 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
         {
             roomObject.stringRange = characterRange
             self.selectedObject = roomObject
-            
-//            if let roc = selectedObject!.characteristic
-//            {
-//                self.updatePlayerCharacteristics(withValue: roc)
-//            }
-            
+
             scene?.responseRoomObjectRequest(selectedObject!)
         }
         else if let linkObject = room.getRoomLinks(forURL: id)
@@ -223,6 +218,7 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
     
     func resetSelectedObject()
     {
+        print("RESET SELECTED OBJECT !!!!")
         selectedObject = nil
     }
     
@@ -451,16 +447,65 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
     }
     
     private func startAttack()
-    {        
-        let hit = TAA.CalculateHitChance(fromPlayerTiredness: (player?.tiredness)!)
+    {
+        var playerTurn: Bool = true
+        var numberOfTurns: Int = GlobalConstants.INT_ZERO
+        var playerHits: Int = GlobalConstants.INT_ZERO
+        var enemyHits: Int = GlobalConstants.INT_ZERO
         
-        if hit
-        {
-            scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_ENEMY", comment: ""))
-        }
-        else
-        {
-            scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_ENEMY", comment: ""))
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+            
+            if playerTurn
+            {
+                let hit = TAA.CalculateHitChance(fromPlayerTiredness: (self.player?.tiredness)!)
+                
+                if hit
+                {
+                    playerHits.increment(byValue: 1)
+                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_ENEMY", comment: ""))
+                }
+                else
+                {
+                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_ENEMY", comment: ""))
+                }
+                
+                playerTurn = false
+            }
+            else
+            {
+                let evade = TAA.CaluclateEvadeChance(fromPlayerHealth: (self.player?.health)!)
+                
+                if evade
+                {
+                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_PLAYER", comment: ""))
+                }
+                else
+                {
+                    enemyHits.increment(byValue: 1)
+                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_PLAYER", comment: ""))
+                }
+                
+                playerTurn = true
+            }
+            
+            numberOfTurns.increment(byValue: 1)
+            
+            if numberOfTurns == GlobalConstants.BATTLE_SYSTEM_MAX_TURNS_NUMBERS
+            {                
+                let message = playerHits > enemyHits ? NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") : NSLocalizedString("RESPONSE_FINISHED_COMBACT_LOOSE", comment: "")
+                
+                self.scene?.responseToStartAttack(withOutcome: message)
+                
+                if let roc = self.selectedObject!.characteristic
+                {
+                    self.updatePlayerCharacteristics(withValue: roc)
+                }
+                
+                self.resetSelectedObject()
+                
+                t.invalidate()
+            }
         }
     }
 }
+
