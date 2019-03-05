@@ -217,6 +217,24 @@ class MainSceneViewController: UIViewController, UITextViewDelegate, MainSceneDi
     func responseToStartAttack(withOutcome message: String)
     {        
         actionResponseTextView.text = message
+        interactor?.requestStartAttack()
+    }
+    
+    func responseToOnAttack(withOutcome message: String)
+    {
+        actionResponseTextView.text = message
+    }
+    
+    func responseToEndAttackWithVictory(withOutcome message: String)
+    {
+        actionResponseTextView.text = message
+        interactor?.requestPerformCombatEnd(withVictory: true)
+    }
+    
+    func responseToEndAttackWithDefeat(withOutcome message: String)
+    {
+        actionResponseTextView.text = message
+        interactor?.requestPerformCombatEnd(withVictory: false)
     }
     
     func manageBuilginsRoomRequestError(_ err: RoomBuilderErrors)

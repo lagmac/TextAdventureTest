@@ -185,7 +185,7 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                 removeObjectFromPlayerInventory()
                 break
             case RoomData.ACTION_ID_$A8:
-                self.startAttack()
+                scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_START_COMBAT", comment: ""))
                 break
             default:
                 break
@@ -308,6 +308,65 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
             let error = err as! ApplicationInternalErrors
             
             scene?.manageFatalError(error.localizedDescription)
+        }
+    }
+    
+    func requestStartAttack()
+    {
+        var playerTurn: Bool = true
+        var numberOfTurns: Int = GlobalConstants.INT_ZERO
+        var playerHits: Int = GlobalConstants.INT_ZERO
+        var enemyHits: Int = GlobalConstants.INT_ZERO
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+            
+            if playerTurn
+            {
+                let result = self.playerAttack()
+                playerHits.increment(byValue: result)
+                playerTurn = false
+            }
+            else
+            {
+                let result = self.enemyAttack()
+                enemyHits.increment(byValue: result)
+                playerTurn = true
+            }
+            
+            numberOfTurns.increment(byValue: 1)
+            
+            if self.isCombatFinished(numberOfTurns)
+            {
+                t.invalidate()
+                
+                if playerHits > enemyHits
+                {
+                    let response = NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") + "(\(playerHits) vs \(enemyHits))"
+                    self.scene?.responseToEndAttackWithVictory(withOutcome: response)
+                }
+                else
+                {
+                    let response = NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") + "(\(enemyHits) vs \(playerHits))"
+                    self.scene?.responseToEndAttackWithDefeat(withOutcome: response)
+                }
+            }
+        }
+    }
+    
+    func requestPerformCombatEnd(withVictory isVictory: Bool)
+    {
+        if isVictory
+        {
+            if let roc = selectedObject!.characteristic
+            {
+                self.updatePlayerCharacteristics(withValue: roc)
+            }
+            
+            resetSelectedObject()
+        }
+        else
+        {
+            print("DECREASE PLAYER HEALTH")
         }
     }
     
@@ -446,66 +505,46 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
         player?.addVisitedRoom(tr)
     }
     
-    private func startAttack()
+    private func playerAttack() -> Int
     {
-        var playerTurn: Bool = true
-        var numberOfTurns: Int = GlobalConstants.INT_ZERO
-        var playerHits: Int = GlobalConstants.INT_ZERO
-        var enemyHits: Int = GlobalConstants.INT_ZERO
+        let hit = TAA.CalculateHitChance(fromPlayerTiredness: (self.player?.tiredness)!)
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
-            
-            if playerTurn
-            {
-                let hit = TAA.CalculateHitChance(fromPlayerTiredness: (self.player?.tiredness)!)
-                
-                if hit
-                {
-                    playerHits.increment(byValue: 1)
-                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_ENEMY", comment: ""))
-                }
-                else
-                {
-                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_ENEMY", comment: ""))
-                }
-                
-                playerTurn = false
-            }
-            else
-            {
-                let evade = TAA.CaluclateEvadeChance(fromPlayerHealth: (self.player?.health)!)
-                
-                if evade
-                {
-                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_PLAYER", comment: ""))
-                }
-                else
-                {
-                    enemyHits.increment(byValue: 1)
-                    self.scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_PLAYER", comment: ""))
-                }
-                
-                playerTurn = true
-            }
-            
-            numberOfTurns.increment(byValue: 1)
-            
-            if numberOfTurns == GlobalConstants.BATTLE_SYSTEM_MAX_TURNS_NUMBERS
-            {                
-                let message = playerHits > enemyHits ? NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") : NSLocalizedString("RESPONSE_FINISHED_COMBACT_LOOSE", comment: "")
-                
-                self.scene?.responseToStartAttack(withOutcome: message)
-                
-                if let roc = self.selectedObject!.characteristic
-                {
-                    self.updatePlayerCharacteristics(withValue: roc)
-                }
-                
-                self.resetSelectedObject()
-                
-                t.invalidate()
-            }
+        if hit
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_ENEMY", comment: ""))
+            return 1
         }
+        else
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_ENEMY", comment: ""))
+            return 0
+        }
+    }
+    
+    private func enemyAttack() -> Int
+    {
+        let evade = TAA.CaluclateEvadeChance(fromPlayerHealth: (self.player?.health)!)
+        
+        if evade
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_PLAYER", comment: ""))
+            return 0
+        }
+        else
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_PLAYER", comment: ""))
+            return 1
+        }
+    }
+    
+    private func isCombatFinished(_ numberOfTurns: Int) -> Bool
+    {
+        if numberOfTurns == GlobalConstants.BATTLE_SYSTEM_MAX_TURNS_NUMBERS
+        {
+            return true
+        }
+        
+        return false
     }
 }
 

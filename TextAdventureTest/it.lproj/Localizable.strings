@@ -78,8 +78,8 @@ RESPONSE_HIT_ENEMY = "NEMICO COLPITO !!!";
 RESPONSE_MISSED_ENEMY = "NEMICO MANCATO !!!";
 RESPONSE_HIT_PLAYER = "GIOCATORE COLPITO !!!";
 RESPONSE_MISSED_PLAYER = "GIOCATORE MANCATO !!!";
-RESPONSE_FINISHED_COMBACT_WIN = "Combattimento finito. Hai sconfitto la creatura.";
-RESPONSE_FINISHED_COMBACT_LOOSE = "Combattimento finito. Sei stato sconfitto.";
+RESPONSE_FINISHED_COMBACT_WIN = "Combattimento finito. Hai sconfitto la creatura. ";
+RESPONSE_FINISHED_COMBACT_LOOSE = "Combattimento finito. Sei stato sconfitto. ";
 
 OBJECT_DOOR = "porta";
 OBJECT_SHEET = "foglio";
