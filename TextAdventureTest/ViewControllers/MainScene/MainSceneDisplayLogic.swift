@@ -26,7 +26,7 @@ protocol MainSceneDisplayLogic: class
     func responseToAddItemToPlayerInventory(_ response: String, itemsCount: Int)
     func responseToInventoryIsFull(_ response: PlayerActionsErros)
     func responseToRequestObjectFromInventory(_ item: RoomObject?)
-    func responseToHitEnemy(withOutcome message: String)
+    func responseToStartAttack(withOutcome message: String)
     func responseToRemoveItemFromPlayerInventory(_ response: String, inventoryState: Bool, itemsCount: Int)
     func responseToRoomDescriptionChanged(withNewDescription description: NSMutableAttributedString)
     func responsePlayerCreatedOrUpdated(withValuesOf exp: Int,

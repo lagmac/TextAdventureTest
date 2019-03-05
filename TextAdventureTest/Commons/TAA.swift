@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameplayKit
 
 public class TAA
 {
@@ -141,5 +142,35 @@ public class TAA
         }
         
         return newStrenght
+    }
+    
+    class func CalculateHitChance(fromPlayerTiredness playerTiredness: Float) -> Bool
+    {
+        let hit = PlayerData.MAX_TIREDNESS - playerTiredness
+        let eva = playerTiredness
+        
+        let hitChance = hit * (PlayerData.MAX_TIREDNESS - eva) * 100
+        
+        var hitEnemy: Bool = false
+        
+        for _ in GlobalConstants.INT_ZERO..<Int(hitChance)
+        {
+            let rool = GKShuffledDistribution.d6().nextInt()
+            
+            if hitEnemy == false && rool == GlobalConstants.D6_DICE_MAX
+            {
+                hitEnemy = true
+            }
+        }
+        
+        return hitEnemy
+    }
+    
+    class func CaluclateEvadeChance(fromPlayerHealth playerhelath: Float) -> Bool
+    {
+        var evade: Bool = false
+        
+        
+        return evade
     }
 }

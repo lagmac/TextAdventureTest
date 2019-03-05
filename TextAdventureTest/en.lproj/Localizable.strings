@@ -73,7 +73,8 @@ RESPONSE_BOTTLE_TAKE = "You have take the bottle.";
 RESPONSE_WATER_IN_BOTTLE = "The liquid in the bottle is water.";
 RESPONSE_OBJECT_USED = "You have used the object.";
 RESPONSE_OBJECT_REMOVED_FROM_INVENTORY = "The object has been removed from inventory.";
-RESPONSE_START_ATTACK = "Combact started.";
+RESPONSE_HIT_ENEMY = "ENEMY HIT !!!";
+RESPONSE_MISSED_ENEMY = "ENEMY MISSED !!!";
 
 OBJECT_DOOR = "door";
 OBJECT_SHEET = "sheet";

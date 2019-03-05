@@ -190,8 +190,7 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                 removeObjectFromPlayerInventory()
                 break
             case RoomData.ACTION_ID_$A8:
-                self.scheduleTirednessTimer(false)
-                    scene?.responseToHitEnemy(withOutcome: NSLocalizedString("RESPONSE_START_ATTACK", comment: ""))
+                self.startAttack()
                 break
             default:
                 break
@@ -449,5 +448,19 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                             _pickerableObjectsNumbers: room.getPicherableObjectNumbers())
         
         player?.addVisitedRoom(tr)
+    }
+    
+    private func startAttack()
+    {        
+        let hit = TAA.CalculateHitChance(fromPlayerTiredness: (player?.tiredness)!)
+        
+        if hit
+        {
+            scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_ENEMY", comment: ""))
+        }
+        else
+        {
+            scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_ENEMY", comment: ""))
+        }
     }
 }

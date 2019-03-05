@@ -214,8 +214,8 @@ class MainSceneViewController: UIViewController, UITextViewDelegate, MainSceneDi
         actionResponseTextView.text = response.localizedDescription
     }
     
-    func responseToHitEnemy(withOutcome message: String)
-    {
+    func responseToStartAttack(withOutcome message: String)
+    {        
         actionResponseTextView.text = message
     }
     
