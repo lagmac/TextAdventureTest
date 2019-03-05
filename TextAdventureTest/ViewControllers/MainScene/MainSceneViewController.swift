@@ -214,6 +214,11 @@ class MainSceneViewController: UIViewController, UITextViewDelegate, MainSceneDi
         actionResponseTextView.text = response.localizedDescription
     }
     
+    func responseToStartAttack(withOutcome message: String)
+    {        
+        actionResponseTextView.text = message
+    }
+    
     func manageBuilginsRoomRequestError(_ err: RoomBuilderErrors)
     {
         actionResponseTextView.text = err.localizedDescription

@@ -30,7 +30,7 @@ struct PlayerData
     
     static let MIN_TIREDNESS: Float = 0.0
     static let MAX_TIREDNESS: Float = 1.0
-    static let START_TIREDNESS: Float = PlayerData.MAX_TIREDNESS
+    static let START_TIREDNESS: Float = PlayerData.MIN_TIREDNESS
     
     static let MAX_EXP: Int = 10000
     static let MIN_EXP: Int = 0
