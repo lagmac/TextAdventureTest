@@ -126,7 +126,6 @@ class Player: NSObject, Codable
     
     func updateHp(withValue newHp: Int)
     {
-//        _hp += newHp
         _hp.increment(byValue: newHp)
         
         if _hp > PlayerData.MAX_HP { _hp = PlayerData.MAX_HP }
@@ -143,7 +142,6 @@ class Player: NSObject, Codable
     
     func updateGold(withValue newGold: Int)
     {
-//        _gold += newGold
         _gold.increment(byValue: newGold)
         
         if _gold > PlayerData.MAX_GOLD { _hp = PlayerData.MAX_GOLD }
@@ -153,7 +151,7 @@ class Player: NSObject, Codable
     
     func updateHealth(withValue newHealth: Float)
     {
-//        _health += newHealth
+        let oldHealth = _health
         _health.increment(byValue: newHealth)
         
         if _health < PlayerData.MIN_HEALTH { _health = PlayerData.MIN_HEALTH }
@@ -162,9 +160,11 @@ class Player: NSObject, Codable
         
         if checkForGameOver() == false
         {
-            updateHp(withValue: (PlayerData.HP_POINTS_FOR_HEALTH.toNegative()))
-//            _health += PlayerData.HEALTH_BONUS
-            _health.increment(byValue: PlayerData.HEALTH_BONUS)
+            if _health > oldHealth
+            {
+                updateHp(withValue: (PlayerData.HP_POINTS_FOR_HEALTH.toNegative()))
+                _health.increment(byValue: PlayerData.HEALTH_BONUS)
+            }
         }
         else
         {
@@ -174,7 +174,6 @@ class Player: NSObject, Codable
     
     func updateStrenght(withValue newValue: Float)
     {
-//        _strenght += newValue
         _strenght.increment(byValue: newValue)
         
         if _strenght < PlayerData.MIN_STRENGHT { _strenght = PlayerData.MIN_STRENGHT }
@@ -184,7 +183,6 @@ class Player: NSObject, Codable
     
     func updateTiredness(withValue newValue: Float)
     {
-//        _tiredness += newValue
         _tiredness.increment(byValue: newValue)
         
         if _tiredness < PlayerData.MIN_TIREDNESS { _tiredness = PlayerData.MIN_TIREDNESS }
