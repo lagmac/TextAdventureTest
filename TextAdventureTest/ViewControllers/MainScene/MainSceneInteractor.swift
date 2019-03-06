@@ -363,6 +363,9 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
             
             let tirednessIncreaseValue = Float(points) * PlayerData.TIREDNESS_PER_POINTS_DAMAGES
             player?.updateTiredness(withValue: tirednessIncreaseValue)
+            
+            room.updateDescription(selectedObject!)
+            scene?.responseToRoomDescriptionChanged(withNewDescription: room.description())
         }
         else
         {
@@ -370,6 +373,7 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
             player?.updateHealth(withValue: healthDecreaseValue.toNegative())
         }
         
+        addVisitedRoom()
         resetSelectedObject()
         
         self.playerUpdated()
