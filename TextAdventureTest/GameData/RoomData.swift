@@ -98,7 +98,7 @@ enum localizedResponses: Int
 
 struct RoomData
 {
-    static let totalRoomsNumber: Int = 50
+    static let totalRoomsNumber: Int = 28
     static let totalTreasuresNumber: Int = 20
     
     // MARK: DICTIONARY KEYS
@@ -240,6 +240,98 @@ struct RoomData
             return R5.dataIT
         case "room_005_en":
             return R5.dataEN
+        case "room_006_it":
+            return R6.dataIT
+        case "room_006_en":
+            return R6.dataEN
+        case "room_007_it":
+            return R7.dataIT
+        case "room_007_en":
+            return R7.dataEN
+        case "room_008_it":
+            return R8.dataIT
+        case "room_008_en":
+            return R8.dataEN
+        case "room_009_it":
+            return R9.dataIT
+        case "room_009_en":
+            return R9.dataEN
+        case "room_010_it":
+            return R10.dataIT
+        case "room_010_en":
+            return R10.dataEN
+        case "room_011_it":
+            return R11.dataIT
+        case "room_011_en":
+            return R11.dataEN
+        case "room_012_it":
+            return R12.dataIT
+        case "room_012_en":
+            return R12.dataEN
+        case "room_013_it":
+            return R13.dataIT
+        case "room_013_en":
+            return R13.dataEN
+        case "room_014_it":
+            return R14.dataIT
+        case "room_014_en":
+            return R14.dataEN
+        case "room_015_it":
+            return R15.dataIT
+        case "room_015_en":
+            return R15.dataEN
+        case "room_016_it":
+            return R16.dataIT
+        case "room_016_en":
+            return R16.dataEN
+        case "room_017_it":
+            return R17.dataIT
+        case "room_017_en":
+            return R17.dataEN
+        case "room_018_it":
+            return R18.dataIT
+        case "room_018_en":
+            return R18.dataEN
+        case "room_019_it":
+            return R19.dataIT
+        case "room_019_en":
+            return R19.dataEN
+        case "room_020_it":
+            return R20.dataIT
+        case "room_020_en":
+            return R20.dataEN
+        case "room_021_it":
+            return R21.dataIT
+        case "room_021_en":
+            return R21.dataEN
+        case "room_022_it":
+            return R22.dataIT
+        case "room_022_en":
+            return R22.dataEN
+        case "room_023_it":
+            return R23.dataIT
+        case "room_023_en":
+            return R23.dataEN
+        case "room_024_it":
+            return R24.dataIT
+        case "room_024_en":
+            return R24.dataEN
+        case "room_025_it":
+            return R25.dataIT
+        case "room_025_en":
+            return R25.dataEN
+        case "room_026_it":
+            return R26.dataIT
+        case "room_026_en":
+            return R26.dataEN
+        case "room_027_it":
+            return R27.dataIT
+        case "room_027_en":
+            return R27.dataEN
+        case "room_028_it":
+            return R28.dataIT
+        case "room_028_en":
+            return R28.dataEN
         default:
             return nil
         }
