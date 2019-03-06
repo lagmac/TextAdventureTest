@@ -74,10 +74,7 @@
 		1165EEEE219C8B1D0030EF20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1165EEEC219C8B1D0030EF20 /* LaunchScreen.storyboard */; };
 		1165EEF9219C8B1E0030EF20 /* TextAdventureTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165EEF8219C8B1E0030EF20 /* TextAdventureTestTests.swift */; };
 		1165EF04219C8B1E0030EF20 /* TextAdventureTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165EF03219C8B1E0030EF20 /* TextAdventureTestUITests.swift */; };
-		116CFD1B21D784A9000AB86A /* room_001_cantina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CFD1A21D784A9000AB86A /* room_001_cantina.swift */; };
-		116CFD1D21D78527000AB86A /* room_002_cucina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CFD1C21D78527000AB86A /* room_002_cucina.swift */; };
-		116CFD1F21D785C5000AB86A /* room_003_dispensa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CFD1E21D785C5000AB86A /* room_003_dispensa.swift */; };
-		116CFD2121D78601000AB86A /* room_004_studio_segreto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CFD2021D78601000AB86A /* room_004_studio_segreto.swift */; };
+		116CFD1B21D784A9000AB86A /* mock_room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CFD1A21D784A9000AB86A /* mock_room.swift */; };
 		11767FEE21AD11E70056C327 /* ActionsGenericResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11767FED21AD11E70056C327 /* ActionsGenericResponses.swift */; };
 		11767FF321AD1CD30056C327 /* Commodore Pixelized v1.2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11767FF221AD1CD30056C327 /* Commodore Pixelized v1.2.ttf */; };
 		117D5E9221FDABFF00E864C6 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D5E9121FDABFF00E864C6 /* AudioManager.swift */; };
@@ -86,7 +83,6 @@
 		117D5E9B21FDB98500E864C6 /* XiibLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117D5E9A21FDB98500E864C6 /* XiibLocalizable.swift */; };
 		117D5E9D21FDC8BB00E864C6 /* in_game_music_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 117D5E9C21FDC8BB00E864C6 /* in_game_music_theme.mp3 */; };
 		1180E9C721A869D9007268A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1180E9C621A869D9007268A5 /* Utilities.swift */; };
-		118AD4E7222C306000A0E2BF /* room_005_cripta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118AD4E6222C306000A0E2BF /* room_005_cripta.swift */; };
 		119282C321B06139008C44BA /* GameDataUILayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119282C221B06139008C44BA /* GameDataUILayout.swift */; };
 		119B7B8021EE2B4A006C919A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119B7B8221EE2B4A006C919A /* Localizable.strings */; };
 		119B7B8721EE2C16006C919A /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119B7B8621EE2C16006C919A /* Localizations.swift */; };
@@ -198,10 +194,7 @@
 		1165EEFF219C8B1E0030EF20 /* TextAdventureTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextAdventureTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1165EF03219C8B1E0030EF20 /* TextAdventureTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAdventureTestUITests.swift; sourceTree = "<group>"; };
 		1165EF05219C8B1E0030EF20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		116CFD1A21D784A9000AB86A /* room_001_cantina.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_001_cantina.swift; sourceTree = "<group>"; };
-		116CFD1C21D78527000AB86A /* room_002_cucina.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_002_cucina.swift; sourceTree = "<group>"; };
-		116CFD1E21D785C5000AB86A /* room_003_dispensa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_003_dispensa.swift; sourceTree = "<group>"; };
-		116CFD2021D78601000AB86A /* room_004_studio_segreto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_004_studio_segreto.swift; sourceTree = "<group>"; };
+		116CFD1A21D784A9000AB86A /* mock_room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mock_room.swift; sourceTree = "<group>"; };
 		11767FED21AD11E70056C327 /* ActionsGenericResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsGenericResponses.swift; sourceTree = "<group>"; };
 		11767FF221AD1CD30056C327 /* Commodore Pixelized v1.2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Commodore Pixelized v1.2.ttf"; sourceTree = "<group>"; };
 		117D5E9121FDABFF00E864C6 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
@@ -210,7 +203,6 @@
 		117D5E9A21FDB98500E864C6 /* XiibLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XiibLocalizable.swift; sourceTree = "<group>"; };
 		117D5E9C21FDC8BB00E864C6 /* in_game_music_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = in_game_music_theme.mp3; sourceTree = "<group>"; };
 		1180E9C621A869D9007268A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		118AD4E6222C306000A0E2BF /* room_005_cripta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_005_cripta.swift; sourceTree = "<group>"; };
 		119282C221B06139008C44BA /* GameDataUILayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataUILayout.swift; sourceTree = "<group>"; };
 		119B7B8121EE2B4A006C919A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119B7B8321EE2BC5006C919A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
@@ -423,11 +415,7 @@
 		116CFD1921D78481000AB86A /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
-				116CFD1A21D784A9000AB86A /* room_001_cantina.swift */,
-				116CFD1C21D78527000AB86A /* room_002_cucina.swift */,
-				116CFD1E21D785C5000AB86A /* room_003_dispensa.swift */,
-				116CFD2021D78601000AB86A /* room_004_studio_segreto.swift */,
-				118AD4E6222C306000A0E2BF /* room_005_cripta.swift */,
+				116CFD1A21D784A9000AB86A /* mock_room.swift */,
 				11196194222FEA6D00BEA6E0 /* room_001.swift */,
 				11196196222FEB4A00BEA6E0 /* room_002.swift */,
 				11196198222FEBB600BEA6E0 /* room_003.swift */,
@@ -665,7 +653,7 @@
 				11387CC821C17A3F00FBB444 /* HomeViewDisplayLogic.swift in Sources */,
 				111961A1222FED2400BEA6E0 /* room_007.swift in Sources */,
 				11196195222FEA6D00BEA6E0 /* room_001.swift in Sources */,
-				116CFD1B21D784A9000AB86A /* room_001_cantina.swift in Sources */,
+				116CFD1B21D784A9000AB86A /* mock_room.swift in Sources */,
 				117D5E9921FDB28500E864C6 /* AudioManagerProtocol.swift in Sources */,
 				111961C3222FF30700BEA6E0 /* room_024.swift in Sources */,
 				1108DDE621A6848800AFA761 /* MainScenePresenter.swift in Sources */,
@@ -674,7 +662,6 @@
 				11231AE52206E2E800C56A00 /* StatisticViewInteractor.swift in Sources */,
 				11767FEE21AD11E70056C327 /* ActionsGenericResponses.swift in Sources */,
 				111961CB222FF43C00BEA6E0 /* room_028.swift in Sources */,
-				116CFD2121D78601000AB86A /* room_004_studio_segreto.swift in Sources */,
 				111961B9222FF1AE00BEA6E0 /* room_019.swift in Sources */,
 				111961BD222FF23A00BEA6E0 /* room_021.swift in Sources */,
 				1119619F222FECDF00BEA6E0 /* room_006.swift in Sources */,
@@ -700,7 +687,6 @@
 				111961B3222FF0CC00BEA6E0 /* room_016.swift in Sources */,
 				1180E9C721A869D9007268A5 /* Utilities.swift in Sources */,
 				112E9AEB21A5C7ED00498B65 /* RoomData.swift in Sources */,
-				116CFD1D21D78527000AB86A /* room_002_cucina.swift in Sources */,
 				113DB25021C41CF100A760F3 /* CharacterCreationInteractor.swift in Sources */,
 				1125A5B921A5D4D2005026B5 /* RoomBuilderErrors.swift in Sources */,
 				11FD8E6121C2CC7800C82EDF /* CharacterCreationPresenterLogic.swift in Sources */,
@@ -714,7 +700,6 @@
 				119B7B8721EE2C16006C919A /* Localizations.swift in Sources */,
 				117D5E9221FDABFF00E864C6 /* AudioManager.swift in Sources */,
 				11196197222FEB4A00BEA6E0 /* room_002.swift in Sources */,
-				116CFD1F21D785C5000AB86A /* room_003_dispensa.swift in Sources */,
 				11387CCC21C183E000FBB444 /* HomeViewPresenterLogic.swift in Sources */,
 				1101616C21FB19AB006F6704 /* MainSceneRouter.swift in Sources */,
 				1108DDE821A684D400AFA761 /* MainScenePresentLogic.swift in Sources */,
@@ -743,7 +728,6 @@
 				111961C5222FF35F00BEA6E0 /* room_025.swift in Sources */,
 				111961B7222FF17100BEA6E0 /* room_018.swift in Sources */,
 				11FD8E5921C2C68900C82EDF /* CharacterCreationViewController.swift in Sources */,
-				118AD4E7222C306000A0E2BF /* room_005_cripta.swift in Sources */,
 				117D5E9B21FDB98500E864C6 /* XiibLocalizable.swift in Sources */,
 				111961C9222FF3FC00BEA6E0 /* room_027.swift in Sources */,
 				11F2FBC521A7D65100D2F944 /* PlayerActionsErrors.swift in Sources */,
