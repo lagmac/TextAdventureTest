@@ -218,7 +218,6 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
     
     func resetSelectedObject()
     {
-        print("RESET SELECTED OBJECT !!!!")
         selectedObject = nil
     }
     
@@ -342,18 +341,18 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                 if playerHits > enemyHits
                 {
                     let response = NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") + "(\(playerHits) vs \(enemyHits))"
-                    self.scene?.responseToEndAttackWithVictory(withOutcome: response)
+                    self.scene?.responseToEndAttackWithVictory(withOutcome: response, points: enemyHits)
                 }
                 else
                 {
                     let response = NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") + "(\(enemyHits) vs \(playerHits))"
-                    self.scene?.responseToEndAttackWithDefeat(withOutcome: response)
+                    self.scene?.responseToEndAttackWithDefeat(withOutcome: response, points: enemyHits)
                 }
             }
         }
     }
     
-    func requestPerformCombatEnd(withVictory isVictory: Bool)
+    func requestPerformCombatEnd(withVictory isVictory: Bool, points: Int)
     {
         if isVictory
         {
@@ -362,12 +361,18 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                 self.updatePlayerCharacteristics(withValue: roc)
             }
             
-            resetSelectedObject()
+            let tirednessIncreaseValue = Float(points) * PlayerData.TIREDNESS_PER_POINTS_DAMAGES
+            player?.updateTiredness(withValue: tirednessIncreaseValue)
         }
         else
         {
-            print("DECREASE PLAYER HEALTH")
+            let healthDecreaseValue = Float(points) * PlayerData.HEALTH_PER_POINTS_DAMAGES
+            player?.updateHealth(withValue: healthDecreaseValue.toNegative())
         }
+        
+        resetSelectedObject()
+        
+        self.playerUpdated()
     }
     
     private func playAudio(_ value: Bool)

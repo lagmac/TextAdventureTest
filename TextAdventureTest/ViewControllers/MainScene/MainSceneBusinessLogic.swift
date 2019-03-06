@@ -24,7 +24,7 @@ protocol MainSceneBusinessLogic: class
     func requestStartTirednessCalculator()
     func requestStopTirednessCalculator()
     func requestStartAttack()
-    func requestPerformCombatEnd(withVictory isVictory: Bool)
+    func requestPerformCombatEnd(withVictory isVictory: Bool, points: Int)
     func playMusic()
     func stopMusic()
 }

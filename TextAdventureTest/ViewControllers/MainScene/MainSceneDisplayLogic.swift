@@ -28,8 +28,8 @@ protocol MainSceneDisplayLogic: class
     func responseToRequestObjectFromInventory(_ item: RoomObject?)
     func responseToStartAttack(withOutcome message: String)
     func responseToOnAttack(withOutcome message: String)
-    func responseToEndAttackWithVictory(withOutcome message: String)
-    func responseToEndAttackWithDefeat(withOutcome message: String)
+    func responseToEndAttackWithVictory(withOutcome message: String, points: Int)
+    func responseToEndAttackWithDefeat(withOutcome message: String, points: Int)
     func responseToRemoveItemFromPlayerInventory(_ response: String, inventoryState: Bool, itemsCount: Int)
     func responseToRoomDescriptionChanged(withNewDescription description: NSMutableAttributedString)
     func responsePlayerCreatedOrUpdated(withValuesOf exp: Int,

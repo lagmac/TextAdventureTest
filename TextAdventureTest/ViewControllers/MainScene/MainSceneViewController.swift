@@ -225,16 +225,16 @@ class MainSceneViewController: UIViewController, UITextViewDelegate, MainSceneDi
         actionResponseTextView.text = message
     }
     
-    func responseToEndAttackWithVictory(withOutcome message: String)
+    func responseToEndAttackWithVictory(withOutcome message: String, points: Int)
     {
         actionResponseTextView.text = message
-        interactor?.requestPerformCombatEnd(withVictory: true)
+        interactor?.requestPerformCombatEnd(withVictory: true, points: points)
     }
     
-    func responseToEndAttackWithDefeat(withOutcome message: String)
+    func responseToEndAttackWithDefeat(withOutcome message: String, points: Int)
     {
         actionResponseTextView.text = message
-        interactor?.requestPerformCombatEnd(withVictory: false)
+        interactor?.requestPerformCombatEnd(withVictory: false, points: points)
     }
     
     func manageBuilginsRoomRequestError(_ err: RoomBuilderErrors)
