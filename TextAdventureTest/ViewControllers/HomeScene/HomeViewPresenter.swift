@@ -95,6 +95,13 @@ class HomeViewPresenter: HomeViewPresenterLogic
         
         audioOnOffAction.setValue(FontStyles.actionSheetMessageFontColor, forKey: AlertAttibutesKeys.TITLE_TEXT_COLOR)
         
+        let showMapAction = UIAlertAction(title: SettingsOptionsSelectorLabel.showMap.localized, style: .default) { (action) in
+            
+            print("SHOW MAP")
+        }
+        
+        showMapAction.setValue(FontStyles.actionSheetMessageFontColor, forKey: AlertAttibutesKeys.TITLE_TEXT_COLOR)
+        
         let closeAction = UIAlertAction(title: SettingsOptionsSelectorLabel.discard.localized, style: .default) { (action) in
             
         }
@@ -102,6 +109,7 @@ class HomeViewPresenter: HomeViewPresenterLogic
         closeAction.setValue(FontStyles.actionSheetMessageFontColor, forKey: AlertAttibutesKeys.TITLE_TEXT_COLOR)
         
         actionSheet.addAction(statisticAction)
+        actionSheet.addAction(showMapAction)
         actionSheet.addAction(audioOnOffAction)
         actionSheet.addAction(closeAction)
         
