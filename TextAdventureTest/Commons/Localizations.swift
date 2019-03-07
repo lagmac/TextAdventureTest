@@ -182,6 +182,7 @@ enum SettingsOptionsSelectorLabel: Int
     case audioOff = 3
     case statistic = 4
     case discard = 5
+    case showMap = 6
     
     var localized: String
     {
@@ -197,6 +198,8 @@ enum SettingsOptionsSelectorLabel: Int
             return NSLocalizedString("SETTINGS_OPTIONS_STATISTIC", comment: "")
         case .discard:
             return NSLocalizedString("SETTINGS_OPTIONS_SELECTOR_DISCARD", comment: "")
+        case .showMap:
+            return NSLocalizedString("SETTINGS_OPTIONS_SELECTOR_SHOW_MAP", comment: "")
         }
     }
     
