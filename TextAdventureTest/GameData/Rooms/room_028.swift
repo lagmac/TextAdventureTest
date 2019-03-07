@@ -15,11 +15,11 @@ struct R28
                                          "name" : "Stanza 28",
                                          "description" : "Sei nella stanza 28. A $L1 c'è la stanza 27. Ad est c'è una porta chiusa.",
                                          "objects" : [["id" : "$O1",
-                                                       "text" : localizedObjects.door.localized,
-                                                       "actions" : [],
-                                                       "responses" : []]],
+                                                       "text" : "porta",
+                                                       "actions" : ["$A1", "$A4"],
+                                                       "responses" : ["$R18", "$R19"]]],
                                          "links" : [["id" : "$L1",
-                                                     "text" : RoomData.DIRECTION_ID_$W,
+                                                     "text" : "$W",
                                                      "to" : "room_027",
                                                      "from" : "room_028"]]
     ]
@@ -27,9 +27,12 @@ struct R28
     static let dataEN: [String : Any] = ["id" : "room_028",
                                          "name" : "Stanza 28",
                                          "description" : "Sei nella stanza 28. A $L1 c'è la stanza 27.",
-                                         "objects" : [],
+                                         "objects" : [["id" : "$O1",
+                                                       "text" : "door",
+                                                       "actions" : ["$A1", "$A4"],
+                                                       "responses" : ["$R18", "$R19"]]],
                                          "links" : [["id" : "$L1",
-                                                     "text" : RoomData.DIRECTION_ID_$W,
+                                                     "text" : "$W",
                                                      "to" : "room_027",
                                                      "from" : "room_028"]]
     ]

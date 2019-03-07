@@ -15,11 +15,11 @@ struct R1
                                          "name" : "Stanza 1",
                                          "description" : "Sei nella stanza 1. A $L1 c'è la stanza 2. Ad ovest c'è una $O1 chiusa.",
                                          "objects" : [["id" : "$O1",
-                                                       "text" : localizedObjects.door.localized,
-                                                       "actions" : [RoomData.ACTION_ID_$A1, RoomData.ACTION_ID_$A4],
-                                                       "responses" : [RoomData.RESPONSE_ID_$R18, RoomData.RESPONSE_ID_$R19]]],
+                                                       "text" : "porta",
+                                                       "actions" : ["$A1", "$A4"],
+                                                       "responses" : ["$R18", "$R19"]]],
                                          "links" : [["id" : "$L1",
-                                                     "text" : RoomData.DIRECTION_ID_$N,
+                                                     "text" : "$N",
                                                      "to" : "room_002",
                                                      "from" : "room_001"]]
     ]
@@ -28,11 +28,11 @@ struct R1
                                          "name" : "Stanza 1",
                                          "description" : "Sei nella stanza 1. A $L1 c'è la stanza 2. Ad ovest c'è una $O1 chiusa.",
                                          "objects" : [["id" : "$O1",
-                                                       "text" : localizedObjects.door.localized,
-                                                       "actions" : [RoomData.ACTION_ID_$A1, RoomData.ACTION_ID_$A4],
-                                                       "responses" : [RoomData.RESPONSE_ID_$R18, RoomData.RESPONSE_ID_$R19]]],
+                                                       "text" : "door",
+                                                       "actions" : ["$A1", "$A4"],
+                                                       "responses" : ["$R18", "$R19"]]],
                                          "links" : [["id" : "$L1",
-                                                     "text" : RoomData.DIRECTION_ID_$N,
+                                                     "text" : "$N",
                                                      "to" : "room_002",
                                                      "from" : "room_001"]]
     ]
