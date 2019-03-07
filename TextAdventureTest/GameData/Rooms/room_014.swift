@@ -16,11 +16,11 @@ struct R14
                                          "description" : "Sei nella stanza 14. A $L1 c'è la stanza 15. A $L2 c'è la stanza 13.",
                                          "objects" : [],
                                          "links" : [["id" : "$L1",
-                                                     "text" : RoomData.DIRECTION_ID_$E,
+                                                     "text" : "$E",
                                                      "to" : "room_015",
                                                      "from" : "room_014"],
                                                     ["id" : "$L2",
-                                                     "text" : RoomData.DIRECTION_ID_$N,
+                                                     "text" : "$N",
                                                      "to" : "room_013",
                                                      "from" : "room_014"]]
     ]
@@ -30,11 +30,11 @@ struct R14
                                          "description" : "Sei nella stanza 14. A $L1 c'è la stanza 15. A $L2 c'è la stanza 13.",
                                          "objects" : [],
                                          "links" : [["id" : "$L1",
-                                                     "text" : RoomData.DIRECTION_ID_$E,
+                                                     "text" : "$E",
                                                      "to" : "room_015",
                                                      "from" : "room_014"],
                                                     ["id" : "$L2",
-                                                     "text" : RoomData.DIRECTION_ID_$N,
+                                                     "text" : "$N",
                                                      "to" : "room_013",
                                                      "from" : "room_014"]]
     ]
