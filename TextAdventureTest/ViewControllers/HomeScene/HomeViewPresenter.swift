@@ -97,7 +97,7 @@ class HomeViewPresenter: HomeViewPresenterLogic
         
         let showMapAction = UIAlertAction(title: SettingsOptionsSelectorLabel.showMap.localized, style: .default) { (action) in
             
-            print("SHOW MAP")
+            self.scene?.responseToPresentMapScene()
         }
         
         showMapAction.setValue(FontStyles.actionSheetMessageFontColor, forKey: AlertAttibutesKeys.TITLE_TEXT_COLOR)

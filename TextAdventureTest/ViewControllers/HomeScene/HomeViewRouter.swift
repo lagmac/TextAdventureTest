@@ -59,6 +59,18 @@ class HomeViewRouter
         }
     }
     
+    func navigateToMapScene()
+    {
+        if let vc = getMapViewController()
+        {
+            scene?.responseNavigateToNewScene(vc)
+        }
+        else
+        {
+            scene?.manageFatalError()
+        }
+    }
+    
     private func getMainSceneViewController() -> MainSceneViewController?
     {
         guard let sb = storyboard else {
@@ -87,5 +99,15 @@ class HomeViewRouter
         }
         
         return sb.instantiateViewController(withIdentifier: SceneIdentifier.StatisticScene.rawValue) as? StatisticsViewController
+    }
+    
+    private func getMapViewController() -> MapViewController?
+    {
+        guard let sb = storyboard else {
+            
+            return nil
+        }
+        
+        return sb.instantiateViewController(withIdentifier: SceneIdentifier.MapScene.rawValue) as? MapViewController
     }
 }

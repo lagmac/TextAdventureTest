@@ -16,6 +16,7 @@ protocol HomeViewDisplayLogic: class
     func responseToSavedGameNotExist()
     func responseToSavedGameExist()
     func responseToPresentStatisticScene()
+    func responseToPresentMapScene()
     func responseToLoadGame(_ data: [String: Any?])
     func responseCharacterNotExist()
     func responseCharacterExist(_ pc: PlayerCharacteristics)

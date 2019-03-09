@@ -20,7 +20,13 @@
 		1108DDE421A67A2E00AFA761 /* MainSceneDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1108DDE321A67A2E00AFA761 /* MainSceneDisplayLogic.swift */; };
 		1108DDE621A6848800AFA761 /* MainScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1108DDE521A6848800AFA761 /* MainScenePresenter.swift */; };
 		1108DDE821A684D400AFA761 /* MainScenePresentLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1108DDE721A684D400AFA761 /* MainScenePresentLogic.swift */; };
+		111052A72233D94400C73406 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111052A62233D94400C73406 /* MapView.swift */; };
 		1114E30C219E8E4100215271 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114E30B219E8E4100215271 /* Room.swift */; };
+		111871D62231815200ED1B8F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111871D52231815200ED1B8F /* MapViewController.swift */; };
+		111871D8223181D900ED1B8F /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111871D7223181D900ED1B8F /* MapRouter.swift */; };
+		111871DA2231824100ED1B8F /* MapViewDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111871D92231824100ED1B8F /* MapViewDisplayLogic.swift */; };
+		111871DC2231869700ED1B8F /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111871DB2231869700ED1B8F /* MapViewPresenter.swift */; };
+		111871DE2231876C00ED1B8F /* MapViewPresenterLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111871DD2231876B00ED1B8F /* MapViewPresenterLogic.swift */; };
 		11196195222FEA6D00BEA6E0 /* room_001.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11196194222FEA6D00BEA6E0 /* room_001.swift */; };
 		11196197222FEB4A00BEA6E0 /* room_002.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11196196222FEB4A00BEA6E0 /* room_002.swift */; };
 		11196199222FEBB600BEA6E0 /* room_003.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11196198222FEBB600BEA6E0 /* room_003.swift */; };
@@ -134,7 +140,13 @@
 		1108DDE321A67A2E00AFA761 /* MainSceneDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneDisplayLogic.swift; sourceTree = "<group>"; };
 		1108DDE521A6848800AFA761 /* MainScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScenePresenter.swift; sourceTree = "<group>"; };
 		1108DDE721A684D400AFA761 /* MainScenePresentLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScenePresentLogic.swift; sourceTree = "<group>"; };
+		111052A62233D94400C73406 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1114E30B219E8E4100215271 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		111871D52231815200ED1B8F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		111871D7223181D900ED1B8F /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		111871D92231824100ED1B8F /* MapViewDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDisplayLogic.swift; sourceTree = "<group>"; };
+		111871DB2231869700ED1B8F /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		111871DD2231876B00ED1B8F /* MapViewPresenterLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenterLogic.swift; sourceTree = "<group>"; };
 		11196194222FEA6D00BEA6E0 /* room_001.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_001.swift; sourceTree = "<group>"; };
 		11196196222FEB4A00BEA6E0 /* room_002.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_002.swift; sourceTree = "<group>"; };
 		11196198222FEBB600BEA6E0 /* room_003.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_003.swift; sourceTree = "<group>"; };
@@ -273,6 +285,19 @@
 			path = StatisticScene;
 			sourceTree = "<group>";
 		};
+		111871D42231812600ED1B8F /* MapScene */ = {
+			isa = PBXGroup;
+			children = (
+				111871D52231815200ED1B8F /* MapViewController.swift */,
+				111871D92231824100ED1B8F /* MapViewDisplayLogic.swift */,
+				111871D7223181D900ED1B8F /* MapRouter.swift */,
+				111871DB2231869700ED1B8F /* MapViewPresenter.swift */,
+				111871DD2231876B00ED1B8F /* MapViewPresenterLogic.swift */,
+				111052A62233D94400C73406 /* MapView.swift */,
+			);
+			path = MapScene;
+			sourceTree = "<group>";
+		};
 		1125A5B721A5D4B4005026B5 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +340,7 @@
 		112E9AEC21A5C84200498B65 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				111871D42231812600ED1B8F /* MapScene */,
 				1103D212220218E7008DC930 /* StatisticScene */,
 				11FD8E5721C2C58500C82EDF /* CharacterCreationScene */,
 				11387CC621C1799900FBB444 /* HomeScene */,
@@ -655,8 +681,10 @@
 				11196195222FEA6D00BEA6E0 /* room_001.swift in Sources */,
 				116CFD1B21D784A9000AB86A /* mock_room.swift in Sources */,
 				117D5E9921FDB28500E864C6 /* AudioManagerProtocol.swift in Sources */,
+				111871DA2231824100ED1B8F /* MapViewDisplayLogic.swift in Sources */,
 				111961C3222FF30700BEA6E0 /* room_024.swift in Sources */,
 				1108DDE621A6848800AFA761 /* MainScenePresenter.swift in Sources */,
+				111871D62231815200ED1B8F /* MapViewController.swift in Sources */,
 				11B7488F21F631A200D1F835 /* UItextField+Padding.swift in Sources */,
 				112E9AF021A5C89A00498B65 /* ObjectAction.swift in Sources */,
 				11231AE52206E2E800C56A00 /* StatisticViewInteractor.swift in Sources */,
@@ -665,6 +693,7 @@
 				111961B9222FF1AE00BEA6E0 /* room_019.swift in Sources */,
 				111961BD222FF23A00BEA6E0 /* room_021.swift in Sources */,
 				1119619F222FECDF00BEA6E0 /* room_006.swift in Sources */,
+				111871DC2231869700ED1B8F /* MapViewPresenter.swift in Sources */,
 				111961AD222FEFFB00BEA6E0 /* room_013.swift in Sources */,
 				111961C7222FF3BA00BEA6E0 /* room_026.swift in Sources */,
 				111961BF222FF27600BEA6E0 /* room_022.swift in Sources */,
@@ -684,6 +713,7 @@
 				11035A1922298B1000893114 /* PlayerStatistics.swift in Sources */,
 				11387CCE21C1841B00FBB444 /* HomeViewPresenter.swift in Sources */,
 				11196199222FEBB600BEA6E0 /* room_003.swift in Sources */,
+				111871DE2231876C00ED1B8F /* MapViewPresenterLogic.swift in Sources */,
 				111961B3222FF0CC00BEA6E0 /* room_016.swift in Sources */,
 				1180E9C721A869D9007268A5 /* Utilities.swift in Sources */,
 				112E9AEB21A5C7ED00498B65 /* RoomData.swift in Sources */,
@@ -698,6 +728,7 @@
 				1108DDE021A6789000AFA761 /* MainSceneInteractor.swift in Sources */,
 				111961A7222FEE3900BEA6E0 /* room_010.swift in Sources */,
 				119B7B8721EE2C16006C919A /* Localizations.swift in Sources */,
+				111052A72233D94400C73406 /* MapView.swift in Sources */,
 				117D5E9221FDABFF00E864C6 /* AudioManager.swift in Sources */,
 				11196197222FEB4A00BEA6E0 /* room_002.swift in Sources */,
 				11387CCC21C183E000FBB444 /* HomeViewPresenterLogic.swift in Sources */,
@@ -731,6 +762,7 @@
 				117D5E9B21FDB98500E864C6 /* XiibLocalizable.swift in Sources */,
 				111961C9222FF3FC00BEA6E0 /* room_027.swift in Sources */,
 				11F2FBC521A7D65100D2F944 /* PlayerActionsErrors.swift in Sources */,
+				111871D8223181D900ED1B8F /* MapRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
