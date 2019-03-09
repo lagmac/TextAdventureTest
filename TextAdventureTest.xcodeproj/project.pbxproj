@@ -20,6 +20,7 @@
 		1108DDE421A67A2E00AFA761 /* MainSceneDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1108DDE321A67A2E00AFA761 /* MainSceneDisplayLogic.swift */; };
 		1108DDE621A6848800AFA761 /* MainScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1108DDE521A6848800AFA761 /* MainScenePresenter.swift */; };
 		1108DDE821A684D400AFA761 /* MainScenePresentLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1108DDE721A684D400AFA761 /* MainScenePresentLogic.swift */; };
+		111052A72233D94400C73406 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111052A62233D94400C73406 /* MapView.swift */; };
 		1114E30C219E8E4100215271 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114E30B219E8E4100215271 /* Room.swift */; };
 		111871D62231815200ED1B8F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111871D52231815200ED1B8F /* MapViewController.swift */; };
 		111871D8223181D900ED1B8F /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111871D7223181D900ED1B8F /* MapRouter.swift */; };
@@ -139,6 +140,7 @@
 		1108DDE321A67A2E00AFA761 /* MainSceneDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneDisplayLogic.swift; sourceTree = "<group>"; };
 		1108DDE521A6848800AFA761 /* MainScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScenePresenter.swift; sourceTree = "<group>"; };
 		1108DDE721A684D400AFA761 /* MainScenePresentLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScenePresentLogic.swift; sourceTree = "<group>"; };
+		111052A62233D94400C73406 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1114E30B219E8E4100215271 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		111871D52231815200ED1B8F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		111871D7223181D900ED1B8F /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				111871D7223181D900ED1B8F /* MapRouter.swift */,
 				111871DB2231869700ED1B8F /* MapViewPresenter.swift */,
 				111871DD2231876B00ED1B8F /* MapViewPresenterLogic.swift */,
+				111052A62233D94400C73406 /* MapView.swift */,
 			);
 			path = MapScene;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				1108DDE021A6789000AFA761 /* MainSceneInteractor.swift in Sources */,
 				111961A7222FEE3900BEA6E0 /* room_010.swift in Sources */,
 				119B7B8721EE2C16006C919A /* Localizations.swift in Sources */,
+				111052A72233D94400C73406 /* MapView.swift in Sources */,
 				117D5E9221FDABFF00E864C6 /* AudioManager.swift in Sources */,
 				11196197222FEB4A00BEA6E0 /* room_002.swift in Sources */,
 				11387CCC21C183E000FBB444 /* HomeViewPresenterLogic.swift in Sources */,

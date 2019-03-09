@@ -11,6 +11,7 @@ import UIKit
 class MapViewController: UIViewController, MapViewDisplayLogic
 {
     @IBOutlet weak var backToHomeButton: UIButton!
+    @IBOutlet weak var mapImageView: MapView!
     
     private var router: MapViewRouter?
     private var presenter: MapViewPresenter?
@@ -30,11 +31,19 @@ class MapViewController: UIViewController, MapViewDisplayLogic
         let presenter = MapViewPresenter()
         presenter.scene = self
         self.presenter = presenter
+        
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
 
+    }
+    
+    private func setupUI()
+    {
+        mapImageView.layer.cornerRadius = GameDataUILayout.cornerRadius
+        mapImageView.clipsToBounds = true
     }
     
     @IBAction func backToHomeButtonPressed(_ sender: UIButton)
