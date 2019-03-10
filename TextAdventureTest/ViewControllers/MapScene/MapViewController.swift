@@ -11,10 +11,15 @@ import UIKit
 class MapViewController: UIViewController, MapViewDisplayLogic
 {
     @IBOutlet weak var backToHomeButton: UIButton!
+    @IBOutlet weak var mapImageViewBackground: UIView!
     @IBOutlet weak var mapImageView: MapView!
+    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    @IBOutlet weak var doubleTapGesture: UITapGestureRecognizer!
     
     private var router: MapViewRouter?
     private var presenter: MapViewPresenter?
+    
+    private var resetPoint: CGPoint!
     
     override func viewDidLoad()
     {
@@ -42,13 +47,38 @@ class MapViewController: UIViewController, MapViewDisplayLogic
     
     private func setupUI()
     {
-        mapImageView.layer.cornerRadius = GameDataUILayout.cornerRadius
-        mapImageView.clipsToBounds = true
+        mapImageViewBackground.layer.cornerRadius = GameDataUILayout.cornerRadius
+        mapImageViewBackground.clipsToBounds = true
+        
+        panGesture.require(toFail: doubleTapGesture)
+        
+        resetPoint = mapImageView.center
     }
     
     @IBAction func backToHomeButtonPressed(_ sender: UIButton)
     {
         router?.navigateToHomeScene(withData: nil)
+    }
+    
+    @IBAction func handlePan(recognizer: UIPanGestureRecognizer)
+    {
+        let translation = recognizer.translation(in: self.view)
+        
+        if let view = recognizer.view
+        {
+            view.center = CGPoint(x:view.center.x + translation.x,
+                                  y:view.center.y + translation.y)
+        }
+        
+        recognizer.setTranslation(CGPoint.zero, in: self.view)
+    }
+    
+    @IBAction func handleDoubleTap(recognizer: UITapGestureRecognizer)
+    {
+        if let view = recognizer.view
+        {
+            view.center = resetPoint
+        }
     }
     
     func responseNavigateToNewScene(_ scene: UIViewController)

@@ -550,9 +550,27 @@
                                     <action selector="backToHomeButtonPressed:" destination="ew5-YU-cem" eventType="touchUpInside" id="7OQ-MJ-JX6"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-P0-7PC" customClass="MapView" customModule="TextAdventureTest" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-P0-7PC" customClass="UYIview">
                                 <rect key="frame" x="8" y="72" width="359" height="544"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xB6-8G-6EZ" customClass="MapView" customModule="TextAdventureTest" customModuleProvider="target">
+                                        <rect key="frame" x="6" y="6" width="347" height="532"/>
+                                        <color key="backgroundColor" red="0.5700683594" green="0.52393538750000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="zev-Rz-IgD" appends="YES" id="Ohg-pk-Ime"/>
+                                            <outletCollection property="gestureRecognizers" destination="eTx-wH-LTz" appends="YES" id="LSr-YS-RUb"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="xB6-8G-6EZ" firstAttribute="leading" secondItem="6yc-P0-7PC" secondAttribute="leading" constant="6" id="FnR-o1-AfC"/>
+                                    <constraint firstAttribute="trailing" secondItem="xB6-8G-6EZ" secondAttribute="trailing" constant="6" id="UmS-P8-MVa"/>
+                                    <constraint firstItem="xB6-8G-6EZ" firstAttribute="top" secondItem="6yc-P0-7PC" secondAttribute="top" constant="6" id="hfo-Na-xm5"/>
+                                    <constraint firstAttribute="bottom" secondItem="xB6-8G-6EZ" secondAttribute="bottom" constant="6" id="whC-yy-Uxg"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="north" translatesAutoresizingMaskIntoConstraints="NO" id="Il1-de-meH">
                                 <rect key="frame" x="314" y="80" width="45" height="45"/>
@@ -583,10 +601,23 @@
                     </view>
                     <connections>
                         <outlet property="backToHomeButton" destination="gLX-QQ-YLW" id="q53-Zq-KSb"/>
-                        <outlet property="mapImageView" destination="6yc-P0-7PC" id="G63-he-893"/>
+                        <outlet property="doubleTapGesture" destination="eTx-wH-LTz" id="ZXs-Fa-CYt"/>
+                        <outlet property="mapImageView" destination="xB6-8G-6EZ" id="P4b-rc-yNr"/>
+                        <outlet property="mapImageViewBackground" destination="6yc-P0-7PC" id="lml-Xu-KSQ"/>
+                        <outlet property="panGesture" destination="zev-Rz-IgD" id="1td-Ok-GI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uf3-NI-c7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer delaysTouchesBegan="YES" delaysTouchesEnded="NO" minimumNumberOfTouches="1" id="zev-Rz-IgD">
+                    <connections>
+                        <action selector="handlePanWithRecognizer:" destination="ew5-YU-cem" id="Vy9-4a-dMS"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer delaysTouchesBegan="YES" delaysTouchesEnded="NO" numberOfTapsRequired="2" id="eTx-wH-LTz">
+                    <connections>
+                        <action selector="handleDoubleTapWithRecognizer:" destination="ew5-YU-cem" id="D9t-1P-bRb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1048.8" y="841.52923538230891"/>
         </scene>
