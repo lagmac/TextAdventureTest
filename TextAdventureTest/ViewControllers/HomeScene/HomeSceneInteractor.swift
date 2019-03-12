@@ -101,9 +101,27 @@ class HomeSceneInteractor: AudioManagerDelegate, HomeSceneBusinessLogic
                                 tresuresFound: treasureFound)
     }
     
-    func requestRoomNumber() -> Int?
+    func requestRoomList() -> [String]?
     {
-        return PreferencesManager.getPlayerVisitedRoom() ?? GlobalConstants.INT_ZERO
+        var roomList: [String]?
+        
+        if let pl = PreferencesManager.UnarchivePlayerData()
+        {
+            if pl.visitedRooms != nil && (pl.visitedRooms?.count)! > 0
+            {
+                if roomList == nil
+                {
+                    roomList = []
+                }
+                
+                for vr in pl.visitedRooms!
+                {
+                    roomList?.append(vr.key)
+                }
+            }
+        }
+
+        return roomList
     }
     
     func preloadMainTheme()

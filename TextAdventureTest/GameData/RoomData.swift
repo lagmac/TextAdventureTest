@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum localizedObjects: Int
 {
@@ -346,5 +347,16 @@ struct RoomData
             return nil
         }
     }
+    
+    static let MapWidth: CGFloat = (90 * 5) + (6 * 20)
+    static let MapHeight: CGFloat = (90 * 6) + (7 * 20)
+    
+    static let RoomMapSize: CGSize = CGSize(width: 90.0, height: 90.0)
+    
+    static let MapRoomsCoordinateList: [String : MapRoomCoordinate] = ["room_001" : MapRoomCoordinate(coordX: 0.0,coordY: 0.0),
+                                                                       "room_002" : MapRoomCoordinate(coordX: 0.0,coordY: -110.0),
+                                                                       "room_003" : MapRoomCoordinate(coordX: 110.0,coordY: -110.0),
+                                                                       "room_004" : MapRoomCoordinate(coordX: 110.0,coordY: -220.0),
+                                                                       "room_005" : MapRoomCoordinate(coordX: 220.0,coordY: -220.0)]
 }
 

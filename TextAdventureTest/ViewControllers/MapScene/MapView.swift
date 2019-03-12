@@ -10,8 +10,6 @@ import UIKit
 
 class MapView: UIImageView
 {
-    let roomSize: CGSize = CGSize(width: 90.0, height: 90.0)
-    
     var startOriginX: CGFloat!
     var startOriginY: CGFloat!
     
@@ -21,8 +19,8 @@ class MapView: UIImageView
     {
         super.init(frame: frame)
         
-        startOriginX = (self.frame.width / 2) - roomSize.width / 2
-        startOriginY = (self.frame.height / 2) - roomSize.height / 2
+        startOriginX = (self.frame.width / 2) - RoomData.RoomMapSize.width / 2
+        startOriginY = (self.frame.height / 2) - RoomData.RoomMapSize.height / 2
     }
     
     required init?(coder aDecoder: NSCoder)
@@ -50,12 +48,12 @@ class MapView: UIImageView
             
             for roomName in roomNameList!
             {
-                if let roomCoord = MapCoordinateList.list[roomName]
+                if let roomCoord = RoomData.MapRoomsCoordinateList[roomName]
                 {
                     let oX = startOriginX + roomCoord.coordX!
                     let oY = startOriginY + roomCoord.coordY!
                     
-                    let rectangle = CGRect(x: oX, y: oY, width: roomSize.width, height: roomSize.height)
+                    let rectangle = CGRect(x: oX, y: oY, width: RoomData.RoomMapSize.width, height: RoomData.RoomMapSize.height)
                     
                     ctx.cgContext.setFillColor(UIColor.red.cgColor)
                     ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
@@ -73,17 +71,3 @@ class MapView: UIImageView
     }
 }
 
-struct MapRoomCoordinate
-{
-    var coordX: CGFloat?
-    var coordY: CGFloat?
-}
-
-struct MapCoordinateList
-{
-    static let list: [String : MapRoomCoordinate] = ["room_001" : MapRoomCoordinate(coordX: 0.0,coordY: 0.0),
-                                                     "room_002" : MapRoomCoordinate(coordX: 0.0,coordY: -110.0),
-                                                     "room_003" : MapRoomCoordinate(coordX: 110.0,coordY: -110.0),
-                                                     "room_004" : MapRoomCoordinate(coordX: 110.0,coordY: -220.0),
-                                                     "room_005" : MapRoomCoordinate(coordX: 220.0,coordY: -220.0)]
-}

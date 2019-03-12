@@ -16,7 +16,7 @@ protocol HomeSceneBusinessLogic: class
     func requestSetAudioOnOff()
     func requestExistingCharacter()
     func requestPlayerStatistics() -> PlayerStatistics?
-    func requestRoomNumber() -> Int?
+    func requestRoomList() -> [String]?
     func resetElapsedGameTime()
     func playMusic()
     func stopMusic()
