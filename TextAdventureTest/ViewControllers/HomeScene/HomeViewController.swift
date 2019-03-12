@@ -119,7 +119,9 @@ class HomeViewController: UIViewController, HomeViewDisplayLogic
     
     func responseToPresentMapScene()
     {
-        router?.navigateToMapScene()
+        let roomNumber = interactor?.requestRoomNumber()
+        
+        router?.navigateToMapScene(withData: roomNumber!)
     }
     
     func responsePresentOptionsSelector(_ actionSelector: UIAlertController)

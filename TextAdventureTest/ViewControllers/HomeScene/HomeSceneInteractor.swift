@@ -101,6 +101,11 @@ class HomeSceneInteractor: AudioManagerDelegate, HomeSceneBusinessLogic
                                 tresuresFound: treasureFound)
     }
     
+    func requestRoomNumber() -> Int?
+    {
+        return PreferencesManager.getPlayerVisitedRoom() ?? GlobalConstants.INT_ZERO
+    }
+    
     func preloadMainTheme()
     {
         do

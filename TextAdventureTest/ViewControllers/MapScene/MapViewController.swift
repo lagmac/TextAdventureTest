@@ -12,14 +12,15 @@ class MapViewController: UIViewController, MapViewDisplayLogic
 {
     @IBOutlet weak var backToHomeButton: UIButton!
     @IBOutlet weak var mapImageViewBackground: UIView!
-    @IBOutlet weak var mapImageView: MapView!
-    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
-    @IBOutlet weak var doubleTapGesture: UITapGestureRecognizer!
+    
+    private var mapImageView: MapView!
     
     private var router: MapViewRouter?
     private var presenter: MapViewPresenter?
     
     private var resetPoint: CGPoint!
+    
+    var roomNumbers: Int?
     
     override func viewDidLoad()
     {
@@ -47,10 +48,33 @@ class MapViewController: UIViewController, MapViewDisplayLogic
     
     private func setupUI()
     {
+        guard let rn = roomNumbers else {
+            
+            return
+        }
+        
         mapImageViewBackground.layer.cornerRadius = GameDataUILayout.cornerRadius
         mapImageViewBackground.clipsToBounds = true
         
-        panGesture.require(toFail: doubleTapGesture)
+        let mapWidth:CGFloat = (90 * 5) + (6 * 20)
+        let mapHeight: CGFloat = (90 * 6) + (7 * 20)
+        
+        let mapViewRect = CGRect(x: 0, y: 0, width: mapWidth, height: mapHeight)
+        
+        let originX: CGFloat = (mapImageViewBackground.frame.width - mapWidth) / 2
+        let originY: CGFloat = (mapImageViewBackground.frame.height - mapHeight) / 2
+        
+        let origin: CGPoint = CGPoint(x: originX, y: originY)
+        
+        mapImageView = MapView(frame: mapViewRect)
+        mapImageView.frame.origin = origin
+        mapImageView.roomNameList = ["room_001", "room_002", "room_005"]
+        
+        addMapViewGestures()
+        
+        mapImageView.drawRoom()
+        
+        self.mapImageViewBackground.addSubview(mapImageView)
         
         resetPoint = mapImageView.center
     }
@@ -60,12 +84,12 @@ class MapViewController: UIViewController, MapViewDisplayLogic
         router?.navigateToHomeScene(withData: nil)
     }
     
-    @IBAction func handlePan(recognizer: UIPanGestureRecognizer)
+    @objc func handlePan(_ recognizer: UIPanGestureRecognizer)
     {
-        let translation = recognizer.translation(in: self.view)
-        
         if let view = recognizer.view
         {
+            let translation = recognizer.translation(in: self.view)
+            
             view.center = CGPoint(x:view.center.x + translation.x,
                                   y:view.center.y + translation.y)
         }
@@ -73,7 +97,7 @@ class MapViewController: UIViewController, MapViewDisplayLogic
         recognizer.setTranslation(CGPoint.zero, in: self.view)
     }
     
-    @IBAction func handleDoubleTap(recognizer: UITapGestureRecognizer)
+    @objc func handleDoubleTap(_ recognizer: UITapGestureRecognizer)
     {
         if let view = recognizer.view
         {
@@ -89,5 +113,22 @@ class MapViewController: UIViewController, MapViewDisplayLogic
     func manageFatalError()
     {
         
+    }
+    
+    private func addMapViewGestures()
+    {
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(_:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        doubleTapGesture.delaysTouchesBegan = true
+        doubleTapGesture.delaysTouchesEnded = true
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan(_:)))
+        panGesture.delaysTouchesBegan = true
+        panGesture.delaysTouchesEnded = true
+        panGesture.require(toFail: doubleTapGesture)
+        
+        mapImageView.isUserInteractionEnabled = true
+        mapImageView.addGestureRecognizer(panGesture)
+        mapImageView.addGestureRecognizer(doubleTapGesture)
     }
 }

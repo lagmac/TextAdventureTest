@@ -59,10 +59,11 @@ class HomeViewRouter
         }
     }
     
-    func navigateToMapScene()
+    func navigateToMapScene(withData data: Int)
     {
         if let vc = getMapViewController()
         {
+            vc.roomNumbers = data
             scene?.responseNavigateToNewScene(vc)
         }
         else
