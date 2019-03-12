@@ -357,6 +357,11 @@ struct RoomData
                                                                        "room_002" : MapRoomCoordinate(coordX: 0.0,coordY: -110.0),
                                                                        "room_003" : MapRoomCoordinate(coordX: 110.0,coordY: -110.0),
                                                                        "room_004" : MapRoomCoordinate(coordX: 110.0,coordY: -220.0),
-                                                                       "room_005" : MapRoomCoordinate(coordX: 220.0,coordY: -220.0)]
+                                                                       "room_005" : MapRoomCoordinate(coordX: 220.0,coordY: -220.0),
+                                                                       "room_006" : MapRoomCoordinate(coordX: 220.0,coordY: -110.0),
+                                                                       "room_007" : MapRoomCoordinate(coordX: 220.0,coordY: 0.0),
+                                                                       "room_008" : MapRoomCoordinate(coordX: 220.0,coordY: 110.0),
+                                                                       "room_009" : MapRoomCoordinate(coordX: 110.0,coordY: 0.0),
+                                                                       "room_010" : MapRoomCoordinate(coordX: 110.0,coordY: 110.0)]
 }
 
