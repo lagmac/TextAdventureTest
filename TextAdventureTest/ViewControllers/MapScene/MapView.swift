@@ -35,7 +35,7 @@ class MapView: UIImageView
 
     }
     
-    func drawRoom()
+    func draw()
     {
         guard roomNameList != nil else {
             
@@ -53,14 +53,8 @@ class MapView: UIImageView
                     let oX = startOriginX + roomCoord.coordX!
                     let oY = startOriginY + roomCoord.coordY!
                     
-                    let rectangle = CGRect(x: oX, y: oY, width: RoomData.RoomMapSize.width, height: RoomData.RoomMapSize.height)
-                    
-                    ctx.cgContext.setFillColor(UIColor.red.cgColor)
-                    ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
-                    ctx.cgContext.setLineWidth(2)
-                    
-                    ctx.cgContext.addRect(rectangle)
-                    ctx.cgContext.drawPath(using: .fillStroke)
+                    self.addRoom(ToContext: ctx, withOriginX: oX, andOriginY: oY)
+                    self.addConnection(toContext: ctx, withOriginX: oX, andOriginY: oY)
                 }
             }
         }
@@ -68,6 +62,28 @@ class MapView: UIImageView
         self.image = img
         
         self.setNeedsDisplay()
+    }
+    
+    private func addRoom(ToContext ctx: UIGraphicsRendererContext, withOriginX oX: CGFloat, andOriginY oY: CGFloat)
+    {
+        let room = CGRect(x: oX, y: oY, width: RoomData.RoomMapSize.width, height: RoomData.RoomMapSize.height)
+        
+        ctx.cgContext.setFillColor(UIColor.red.cgColor)
+        ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+        ctx.cgContext.setLineWidth(2)
+        
+        ctx.cgContext.addRect(room)
+        ctx.cgContext.drawPath(using: .fillStroke)
+    }
+    
+    private func addConnection(toContext ctx: UIGraphicsRendererContext, withOriginX oX: CGFloat, andOriginY oY: CGFloat)
+    {
+        let connection = CGRect(x: oX + (RoomData.mapRoomWidth / 2), y: oY - RoomData.spaceBetweenRoom, width: 2.0, height: RoomData.spaceBetweenRoom)
+        
+        ctx.cgContext.setFillColor(UIColor.gray.cgColor)
+        
+        ctx.cgContext.addRect(connection)
+        ctx.cgContext.drawPath(using: .fill)
     }
 }
 

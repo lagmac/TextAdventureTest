@@ -107,6 +107,11 @@ struct RoomData
 {
     static let totalRoomsNumber: Int = 28
     static let totalTreasuresNumber: Int = 20
+    static let axisXRoomNumber: CGFloat = 5.0
+    static let axisYRoomNumber: CGFloat = 6.0
+    static let spaceBetweenRoom: CGFloat = 20.0
+    static let mapRoomWidth: CGFloat = 90.0
+    static let mapRoomHeight: CGFloat = 90.0
     
     // MARK: DICTIONARY KEYS
     static let KEY_ID = "id"
@@ -348,20 +353,32 @@ struct RoomData
         }
     }
     
-    static let MapWidth: CGFloat = (90 * 5) + (6 * 20)
-    static let MapHeight: CGFloat = (90 * 6) + (7 * 20)
+    static let RoomMapSize: CGSize = CGSize(width: RoomData.mapRoomWidth, height: RoomData.mapRoomHeight)
     
-    static let RoomMapSize: CGSize = CGSize(width: 90.0, height: 90.0)
+    static let RoomStep: CGFloat = RoomData.spaceBetweenRoom + RoomData.RoomMapSize.width
     
-    static let MapRoomsCoordinateList: [String : MapRoomCoordinate] = ["room_001" : MapRoomCoordinate(coordX: 0.0,coordY: 0.0),
-                                                                       "room_002" : MapRoomCoordinate(coordX: 0.0,coordY: -110.0),
-                                                                       "room_003" : MapRoomCoordinate(coordX: 110.0,coordY: -110.0),
-                                                                       "room_004" : MapRoomCoordinate(coordX: 110.0,coordY: -220.0),
-                                                                       "room_005" : MapRoomCoordinate(coordX: 220.0,coordY: -220.0),
-                                                                       "room_006" : MapRoomCoordinate(coordX: 220.0,coordY: -110.0),
-                                                                       "room_007" : MapRoomCoordinate(coordX: 220.0,coordY: 0.0),
-                                                                       "room_008" : MapRoomCoordinate(coordX: 220.0,coordY: 110.0),
-                                                                       "room_009" : MapRoomCoordinate(coordX: 110.0,coordY: 0.0),
-                                                                       "room_010" : MapRoomCoordinate(coordX: 110.0,coordY: 110.0)]
+    static let MapWidth: CGFloat = (RoomData.mapRoomWidth * RoomData.axisXRoomNumber) + ((RoomData.axisXRoomNumber + 1) * RoomData.spaceBetweenRoom)
+    static let MapHeight: CGFloat = (RoomData.mapRoomHeight * RoomData.axisYRoomNumber) + ((RoomData.axisYRoomNumber + 1) * RoomData.spaceBetweenRoom)
+    
+    static let MapRoomsCoordinateList: [String : MapRoomCoordinate] = ["room_001" : MapRoomCoordinate(coordX: 0.0,
+                                                                                                      coordY: 0.0),
+                                                                       "room_002" : MapRoomCoordinate(coordX: 0.0,
+                                                                                                      coordY: RoomData.RoomStep.toNegative()),
+                                                                       "room_003" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: RoomData.RoomStep.toNegative()),
+                                                                       "room_004" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: (RoomData.RoomStep * 2).toNegative()),
+                                                                       "room_005" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: (RoomData.RoomStep * 2).toNegative()),
+                                                                       "room_006" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: RoomData.RoomStep.toNegative()),
+                                                                       "room_007" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: 0.0),
+                                                                       "room_008" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: RoomData.RoomStep),
+                                                                       "room_009" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: 0.0),
+                                                                       "room_010" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: RoomData.RoomStep)]
 }
 

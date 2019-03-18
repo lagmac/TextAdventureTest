@@ -69,7 +69,7 @@ class MapViewController: UIViewController, MapViewDisplayLogic
         
         addMapViewGestures()
         
-        mapImageView.drawRoom()
+        mapImageView.draw()
         
         self.mapImageViewBackground.addSubview(mapImageView)
         

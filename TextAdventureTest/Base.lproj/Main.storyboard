@@ -550,7 +550,7 @@
                                     <action selector="backToHomeButtonPressed:" destination="ew5-YU-cem" eventType="touchUpInside" id="7OQ-MJ-JX6"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-P0-7PC" customClass="UYIview">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-P0-7PC">
                                 <rect key="frame" x="8" y="72" width="359" height="544"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -589,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uf3-NI-c7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048.8" y="841.52923538230891"/>
+            <point key="canvasLocation" x="1078" y="842"/>
         </scene>
         <!--Main Scene View Controller-->
         <scene sceneID="tne-QT-ifu">
