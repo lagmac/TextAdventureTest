@@ -54,7 +54,27 @@ class MapView: UIImageView
                     let oY = startOriginY + roomCoord.coordY!
                     
                     self.addRoom(ToContext: ctx, withOriginX: oX, andOriginY: oY)
-                    self.addConnection(toContext: ctx, withOriginX: oX, andOriginY: oY)
+                    self.addRoomName(roomName, withOriginX: oX, andOriginY: oY)
+                    
+                    if roomCoord.toNorth != nil && roomCoord.toNorth! == true
+                    {
+                        self.addConnection(toContext: ctx, withOriginX: oX, andOriginY: oY, connection: RoomData.DIRECTION_ID_$N)
+                    }
+                    
+                    if roomCoord.toEast != nil && roomCoord.toEast! == true
+                    {
+                        self.addConnection(toContext: ctx, withOriginX: oX, andOriginY: oY, connection: RoomData.DIRECTION_ID_$E)
+                    }
+                    
+                    if roomCoord.toSouth != nil && roomCoord.toSouth! == true
+                    {
+                        self.addConnection(toContext: ctx, withOriginX: oX, andOriginY: oY, connection: RoomData.DIRECTION_ID_$S)
+                    }
+                    
+                    if roomCoord.toWest != nil && roomCoord.toWest! == true
+                    {
+                        self.addConnection(toContext: ctx, withOriginX: oX, andOriginY: oY, connection: RoomData.DIRECTION_ID_$W)
+                    }
                 }
             }
         }
@@ -76,14 +96,45 @@ class MapView: UIImageView
         ctx.cgContext.drawPath(using: .fillStroke)
     }
     
-    private func addConnection(toContext ctx: UIGraphicsRendererContext, withOriginX oX: CGFloat, andOriginY oY: CGFloat)
+    private func addConnection(toContext ctx: UIGraphicsRendererContext,
+                               withOriginX oX: CGFloat,
+                               andOriginY oY: CGFloat,
+                               connection: String)
     {
-        let connection = CGRect(x: oX + (RoomData.mapRoomWidth / 2), y: oY - RoomData.spaceBetweenRoom, width: 2.0, height: RoomData.spaceBetweenRoom)
+        var connect: CGRect?
+        
+        switch connection
+        {
+        case RoomData.DIRECTION_ID_$N:
+            connect = CGRect(x: oX + (RoomData.mapRoomWidth / 2), y: oY - RoomData.spaceBetweenRoom, width: 2.0, height: RoomData.spaceBetweenRoom)
+        case RoomData.DIRECTION_ID_$E:
+            connect = CGRect(x: oX + RoomData.mapRoomWidth, y: oY + (RoomData.mapRoomWidth / 2), width: RoomData.spaceBetweenRoom, height: 2.0)
+        case RoomData.DIRECTION_ID_$S:
+            connect = CGRect(x: oX + (RoomData.mapRoomWidth / 2), y: oY + RoomData.mapRoomHeight, width: 2.0, height: RoomData.spaceBetweenRoom)
+        case RoomData.DIRECTION_ID_$W:
+            connect = CGRect(x: oX - RoomData.spaceBetweenRoom, y: oY + (RoomData.mapRoomWidth / 2), width: RoomData.spaceBetweenRoom, height: 2.0)
+        default:
+            break
+        }
+        
+        guard connect != nil else {
+            return
+        }
         
         ctx.cgContext.setFillColor(UIColor.gray.cgColor)
         
-        ctx.cgContext.addRect(connection)
+        ctx.cgContext.addRect(connect!)
         ctx.cgContext.drawPath(using: .fill)
+    }
+    
+    private func addRoomName(_ roomName: String, withOriginX oX: CGFloat, andOriginY oY: CGFloat)
+    {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let attrs = [NSAttributedString.Key.font: FontStyles.generalFont , NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        
+        roomName.draw(with: CGRect(x: oX, y: oY + 4, width: RoomData.mapRoomWidth, height: 32), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
     }
 }
 

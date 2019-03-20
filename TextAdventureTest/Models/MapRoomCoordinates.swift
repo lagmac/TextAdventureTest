@@ -13,4 +13,9 @@ struct MapRoomCoordinate
 {
     var coordX: CGFloat?
     var coordY: CGFloat?
+    var toNorth: Bool?
+    var toEast: Bool?
+    var toSouth: Bool?
+    var toWest: Bool?
+    
 }
