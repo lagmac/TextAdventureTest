@@ -54,7 +54,7 @@ class MapView: UIImageView
                     let oY = startOriginY + roomCoord.coordY!
                     
                     self.addRoom(ToContext: ctx, withOriginX: oX, andOriginY: oY)
-                    self.addRoomName(roomName, withOriginX: oX, andOriginY: oY)
+                    self.addRoomName(withId: roomName, withOriginX: oX, andOriginY: oY)
                     
                     if roomCoord.toNorth != nil && roomCoord.toNorth! == true
                     {
@@ -127,14 +127,29 @@ class MapView: UIImageView
         ctx.cgContext.drawPath(using: .fill)
     }
     
-    private func addRoomName(_ roomName: String, withOriginX oX: CGFloat, andOriginY oY: CGFloat)
+    private func addRoomName(withId roomId: String, withOriginX oX: CGFloat, andOriginY oY: CGFloat)
     {
+        var string: String?
+        
+        let language = PreferencesManager.getLanguage()
+        
+        if let rd = RoomData.getRoomData(byGivenName: "\(roomId)_\(language!)")
+        {
+            let name = rd[RoomData.KEY_NAME] as! String
+            
+            string = name
+        }
+        else
+        {
+            string = "NO NAME !!!"
+        }
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         
         let attrs = [NSAttributedString.Key.font: FontStyles.generalFont , NSAttributedString.Key.paragraphStyle: paragraphStyle]
         
-        roomName.draw(with: CGRect(x: oX, y: oY + 4, width: RoomData.mapRoomWidth, height: 32), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+        string!.draw(with: CGRect(x: oX, y: oY + 4, width: RoomData.mapRoomWidth, height: RoomData.mapRoomHeight - 4), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
     }
 }
 
