@@ -28,8 +28,6 @@ class MapView: UIImageView
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     override func draw(_ rect: CGRect)
     {
 
@@ -88,8 +86,8 @@ class MapView: UIImageView
     {
         let room = CGRect(x: oX, y: oY, width: RoomData.RoomMapSize.width, height: RoomData.RoomMapSize.height)
         
-        ctx.cgContext.setFillColor(UIColor.red.cgColor)
-        ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+        ctx.cgContext.setFillColor(UIColor.darkGray.cgColor)
+        ctx.cgContext.setStrokeColor(UIColor.white.cgColor)
         ctx.cgContext.setLineWidth(2)
         
         ctx.cgContext.addRect(room)
@@ -143,13 +141,11 @@ class MapView: UIImageView
         {
             string = "NO NAME !!!"
         }
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        
-        let attrs = [NSAttributedString.Key.font: FontStyles.generalFont , NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        
-        string!.draw(with: CGRect(x: oX, y: oY + 4, width: RoomData.mapRoomWidth, height: RoomData.mapRoomHeight - 4), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+      
+        string!.draw(with: CGRect(x: oX, y: oY + MapRoomLayout.roomNameOffset, width: RoomData.mapRoomWidth, height: RoomData.mapRoomHeight - MapRoomLayout.roomNameOffset),
+                     options: .usesLineFragmentOrigin,
+                     attributes: MapRoomLayout.attributes,
+                     context: nil)
     }
 }
 

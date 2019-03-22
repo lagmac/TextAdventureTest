@@ -30,6 +30,9 @@ struct FontStyles
     
     static let inventoryPickerfont: UIFont = UIFont(name: "American Typewriter", size: 22)!
     static let inventoryPickerFontColor: UIColor = UIColor(red: 220.0/255.0, green: 160.0/255.0, blue: 61.0/255.0, alpha: 1.0)
+    
+    static let mapRoomNameFont: UIFont = UIFont(name: "American Typewriter", size: 17)!
+    static let mapRoomNameFontColor: UIColor = UIColor(red: 220.0/255.0, green: 160.0/255.0, blue: 61.0/255.0, alpha: 1.0)
 }
 
 struct HUDLabel
@@ -74,6 +77,26 @@ struct RoomTextLayout
             
             return globalAttributes
             
+        }
+    }
+}
+
+struct MapRoomLayout
+{
+    static let roomNameOffset: CGFloat = 4.0
+    
+    static var attributes: [NSMutableAttributedString.Key : NSObject] {
+        
+        get {
+            
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            
+            let attrs = [NSAttributedString.Key.font: FontStyles.mapRoomNameFont,
+                         NSAttributedString.Key.foregroundColor: FontStyles.mapRoomNameFontColor,
+                         NSAttributedString.Key.paragraphStyle: paragraphStyle]
+            
+            return attrs
         }
     }
 }

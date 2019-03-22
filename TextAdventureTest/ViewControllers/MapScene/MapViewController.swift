@@ -30,10 +30,6 @@ class MapViewController: UIViewController, MapViewDisplayLogic
         router.scene = self
         self.router = router
 
-//        let interactor = StatisticViewInteractor()
-//        interactor.scene = self
-//        self.interactor = interactor
-//
         let presenter = MapViewPresenter()
         presenter.scene = self
         self.presenter = presenter
