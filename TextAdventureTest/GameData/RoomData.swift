@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum localizedObjects: Int
 {
@@ -106,6 +107,11 @@ struct RoomData
 {
     static let totalRoomsNumber: Int = 28
     static let totalTreasuresNumber: Int = 20
+    static let axisXRoomNumber: CGFloat = 5.0
+    static let axisYRoomNumber: CGFloat = 6.0
+    static let spaceBetweenRoom: CGFloat = 20.0
+    static let mapRoomWidth: CGFloat = 90.0
+    static let mapRoomHeight: CGFloat = 90.0
     
     // MARK: DICTIONARY KEYS
     static let KEY_ID = "id"
@@ -346,5 +352,73 @@ struct RoomData
             return nil
         }
     }
+    
+    static let RoomMapSize: CGSize = CGSize(width: RoomData.mapRoomWidth, height: RoomData.mapRoomHeight)
+    
+    static let RoomStep: CGFloat = RoomData.spaceBetweenRoom + RoomData.RoomMapSize.width
+    
+    static let MapWidth: CGFloat = (RoomData.mapRoomWidth * RoomData.axisXRoomNumber) + ((RoomData.axisXRoomNumber + 1) * RoomData.spaceBetweenRoom)
+    static let MapHeight: CGFloat = (RoomData.mapRoomHeight * RoomData.axisYRoomNumber) + ((RoomData.axisYRoomNumber + 1) * RoomData.spaceBetweenRoom)
+    
+    static let MapRoomsCoordinateList: [String : MapRoomCoordinate] = ["room_001" : MapRoomCoordinate(coordX: 0.0,
+                                                                                                      coordY: 0.0,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: false,
+                                                                                                      toWest: false),
+                                                                       "room_002" : MapRoomCoordinate(coordX: 0.0,
+                                                                                                      coordY: RoomData.RoomStep.toNegative(),
+                                                                                                      toNorth: false,
+                                                                                                      toEast: true,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_003" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: RoomData.RoomStep.toNegative(),
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: true),
+                                                                       "room_004" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: (RoomData.RoomStep * 2).toNegative(),
+                                                                                                      toNorth: false,
+                                                                                                      toEast: true,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_005" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: (RoomData.RoomStep * 2).toNegative(),
+                                                                                                      toNorth: false,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: true),
+                                                                       "room_006" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: RoomData.RoomStep.toNegative(),
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_007" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: 0.0,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_008" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: RoomData.RoomStep,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: false,
+                                                                                                      toWest: true),
+                                                                       "room_009" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: 0.0,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_010" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: RoomData.RoomStep,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: true,
+                                                                                                      toSouth: false,
+                                                                                                      toWest: true)]
 }
 
