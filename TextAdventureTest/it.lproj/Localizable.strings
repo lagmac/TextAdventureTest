@@ -100,3 +100,5 @@ PARSE_GENERIC_ERROR = "Si è verificato un errore durante il parsing dei dati !!
 
 ALERT_ERROR_TITLE = "ERRORE FATALE";
 ALERT_ERROR_GENERIC_MESSAGE = "Si è verificato un errore. Impossibile continuare.";
+
+MAP_ROOM_NO_NAME = "Nessun nome !!!";

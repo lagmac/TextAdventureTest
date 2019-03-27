@@ -127,7 +127,7 @@ class MapView: UIImageView
     
     private func addRoomName(withId roomId: String, withOriginX oX: CGFloat, andOriginY oY: CGFloat)
     {
-        var string: String?
+        var string: String = NSLocalizedString("MAP_ROOM_NO_NAME", comment: "")
         
         let language = PreferencesManager.getLanguage()
         
@@ -137,15 +137,13 @@ class MapView: UIImageView
             
             string = name
         }
-        else
-        {
-            string = "NO NAME !!!"
-        }
+        
+        let container: CGRect = CGRect(x: oX,
+                                       y: oY + MapRoomLayout.roomNameOffset,
+                                       width: RoomData.mapRoomWidth,
+                                       height: RoomData.mapRoomHeight - MapRoomLayout.roomNameOffset)
       
-        string!.draw(with: CGRect(x: oX, y: oY + MapRoomLayout.roomNameOffset, width: RoomData.mapRoomWidth, height: RoomData.mapRoomHeight - MapRoomLayout.roomNameOffset),
-                     options: .usesLineFragmentOrigin,
-                     attributes: MapRoomLayout.attributes,
-                     context: nil)
+        string.draw(with: container, options: .usesLineFragmentOrigin, attributes: MapRoomLayout.attributes, context: nil)
     }
 }
 
