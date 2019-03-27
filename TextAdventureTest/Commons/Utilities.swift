@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class Utilities
 {
@@ -70,6 +71,14 @@ extension Float
     mutating func decrement(byValue value: Float)
     {
         self -= value
+    }
+}
+
+extension CGFloat
+{
+    func toNegative() -> CGFloat
+    {
+        return self * -1.0
     }
 }
 

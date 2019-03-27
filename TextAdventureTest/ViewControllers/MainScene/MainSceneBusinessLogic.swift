@@ -23,6 +23,8 @@ protocol MainSceneBusinessLogic: class
     func requestSavingElapsedGameTime()
     func requestStartTirednessCalculator()
     func requestStopTirednessCalculator()
+    func requestStartAttack()
+    func requestPerformCombatEnd(withVictory isVictory: Bool, points: Int)
     func playMusic()
     func stopMusic()
 }

@@ -32,6 +32,7 @@ SETTINGS_OPTIONS_AUDIO_ON = "Enable audio";
 SETTINGS_OPTIONS_AUDIO_OFF = "Disable audio";
 SETTINGS_OPTIONS_STATISTIC = "Statistic";
 SETTINGS_OPTIONS_SELECTOR_DISCARD = "Discard";
+SETTINGS_OPTIONS_SELECTOR_SHOW_MAP = "Show map";
 
 GENDER_MALE = "Man";
 GENDER_FEMALE = "Woman";
@@ -50,6 +51,7 @@ ACTION_EXAMINES = "Examines";
 ACTION_CLOSE = "Close";
 ACTION_READ = "Read";
 ACTION_USE = "Use";
+ACTION_ATTACK = "Attack";
 
 NORTH_DIRECTION = "North";
 EAST_DIRECTION = "East";
@@ -63,6 +65,8 @@ RESPONSE_DOOR_ALREADY_OPEN = "The door is already open.";
 RESPONSE_DOOR_ALREADY_CLOSED = "The door is already closed.";
 RESPONSE_SHEET_ON_DOOR = "Attaccato alla porta c'è un foglio.";
 RESPONSE_DOOR_KEY_LOCKED = "The door is locked.";
+RESPONSE_DOOR_NOT_OPENABLE = "The door is closed and cannot be opened";
+RESPONSE_DOOR_LOCKED_ROOM1 = "There is no lock and handle.";
 RESPONSE_NAIL_TAKE = "You have take a nail.";
 RESPONSE_NAIL_RUSTY = "The nail is rusty and curved.";
 RESPONSE_SHEET_TAKE = "You have take the sheet.";
@@ -72,11 +76,19 @@ RESPONSE_BOTTLE_TAKE = "You have take the bottle.";
 RESPONSE_WATER_IN_BOTTLE = "The liquid in the bottle is water.";
 RESPONSE_OBJECT_USED = "You have used the object.";
 RESPONSE_OBJECT_REMOVED_FROM_INVENTORY = "The object has been removed from inventory.";
+RESPONSE_START_COMBAT = "COMBAT STARTED";
+RESPONSE_HIT_ENEMY = "ENEMY HIT !!!";
+RESPONSE_MISSED_ENEMY = "ENEMY MISSED !!!";
+RESPONSE_HIT_PLAYER = "PLAYER HIT !!!";
+RESPONSE_MISSED_PLAYER = "PLAYER MISSED !!!";
+RESPONSE_FINISHED_COMBAT_WIN = "Combat finished. You defeated the creature. ";
+RESPONSE_FINISHED_COMBACT_LOOSE = "Combat finished. You've been defeated. ";
 
 OBJECT_DOOR = "door";
 OBJECT_SHEET = "sheet";
 OBJECT_NAIL = "nail";
 OBJECT_BOTTLE = "bottle";
+OBJECT_CREATURE = "creature";
 
 OF_LABEL = " of ";
 NOT_AVAILABLE = "N/A";
@@ -88,3 +100,5 @@ PARSE_GENERIC_ERROR = "AN error was occurred on data parsing !!!";
 
 ALERT_ERROR_TITLE = "FATAL ERROR";
 ALERT_ERROR_GENERIC_MESSAGE = "An error was occurred. Unable to continue.";
+
+MAP_ROOM_NO_NAME = "No name !!!";

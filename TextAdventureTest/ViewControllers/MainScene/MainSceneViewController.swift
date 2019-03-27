@@ -214,6 +214,29 @@ class MainSceneViewController: UIViewController, UITextViewDelegate, MainSceneDi
         actionResponseTextView.text = response.localizedDescription
     }
     
+    func responseToStartAttack(withOutcome message: String)
+    {        
+        actionResponseTextView.text = message
+        interactor?.requestStartAttack()
+    }
+    
+    func responseToOnAttack(withOutcome message: String)
+    {
+        actionResponseTextView.text = message
+    }
+    
+    func responseToEndAttackWithVictory(withOutcome message: String, points: Int)
+    {
+        actionResponseTextView.text = message
+        interactor?.requestPerformCombatEnd(withVictory: true, points: points)
+    }
+    
+    func responseToEndAttackWithDefeat(withOutcome message: String, points: Int)
+    {
+        actionResponseTextView.text = message
+        interactor?.requestPerformCombatEnd(withVictory: false, points: points)
+    }
+    
     func manageBuilginsRoomRequestError(_ err: RoomBuilderErrors)
     {
         actionResponseTextView.text = err.localizedDescription

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum localizedObjects: Int
 {
@@ -14,6 +15,7 @@ enum localizedObjects: Int
     case sheet = 2
     case nail = 3
     case bottle = 4
+    case creature = 5
     
     var localized: String
     {
@@ -27,6 +29,8 @@ enum localizedObjects: Int
             return NSLocalizedString("OBJECT_NAIL", comment: "")
         case .bottle:
             return NSLocalizedString("OBJECT_BOTTLE", comment: "")
+        case .creature:
+            return NSLocalizedString("OBJECT_CREATURE", comment: "")
         }
     }
 }
@@ -49,6 +53,9 @@ enum localizedResponses: Int
     case r14 = 14
     case r15 = 15
     case r16 = 16
+    case r17 = 17
+    case r18 = 18
+    case r19 = 19
     
     var localized: String
     {
@@ -86,14 +93,25 @@ enum localizedResponses: Int
             return NSLocalizedString("RESPONSE_OBJECT_USED", comment: "")
         case .r16:
             return NSLocalizedString("RESPONSE_OBJECT_REMOVED_FROM_INVENTORY", comment: "")
+        case .r17:
+            return NSLocalizedString("RESPONSE_START_COMBAT", comment: "")
+        case .r18:
+            return NSLocalizedString("RESPONSE_DOOR_NOT_OPENABLE", comment: "")
+        case .r19:
+            return NSLocalizedString("RESPONSE_DOOR_LOCKED_ROOM1", comment: "")
         }
     }
 }
 
 struct RoomData
 {
-    static let totalRoomsNumber: Int = 50
+    static let totalRoomsNumber: Int = 28
     static let totalTreasuresNumber: Int = 20
+    static let axisXRoomNumber: CGFloat = 5.0
+    static let axisYRoomNumber: CGFloat = 6.0
+    static let spaceBetweenRoom: CGFloat = 20.0
+    static let mapRoomWidth: CGFloat = 90.0
+    static let mapRoomHeight: CGFloat = 90.0
     
     // MARK: DICTIONARY KEYS
     static let KEY_ID = "id"
@@ -131,6 +149,7 @@ struct RoomData
     static let ACTION_ID_$A5 = "$A5"
     static let ACTION_ID_$A6 = "$A6"
     static let ACTION_ID_$A7 = "$A7"
+    static let ACTION_ID_$A8 = "$A8"
     
     static let actions: [[String : String]] = [["id" : RoomData.ACTION_ID_$A1, "value" : localizedActions.open.localized],
                                                ["id" : RoomData.ACTION_ID_$A2, "value" : localizedActions.get.localized],
@@ -138,7 +157,8 @@ struct RoomData
                                                ["id" : RoomData.ACTION_ID_$A4, "value" : localizedActions.examines.localized],
                                                ["id" : RoomData.ACTION_ID_$A5, "value" : localizedActions.close.localized],
                                                ["id" : RoomData.ACTION_ID_$A6, "value" : localizedActions.read.localized],
-                                               ["id" : RoomData.ACTION_ID_$A7, "value" : localizedActions.use.localized]]
+                                               ["id" : RoomData.ACTION_ID_$A7, "value" : localizedActions.use.localized],
+                                               ["id" : RoomData.ACTION_ID_$A8, "value" : localizedActions.attack.localized]]
     
     // MARK: RESPONSES
     static let RESPONSE_ID_$R1 = "$R1"
@@ -157,6 +177,9 @@ struct RoomData
     static let RESPONSE_ID_$R14 = "$R14"
     static let RESPONSE_ID_$R15 = "$R15"
     static let RESPONSE_ID_$R16 = "$R16"
+    static let RESPONSE_ID_$R17 = "$R17"
+    static let RESPONSE_ID_$R18 = "$R18"
+    static let RESPONSE_ID_$R19 = "$R19"
     
     static let responses: [[String : String]] = [["id" : RoomData.RESPONSE_ID_$R1, "value" : localizedResponses.r1.localized],
                                                  ["id" : RoomData.RESPONSE_ID_$R2, "value" : localizedResponses.r2.localized],
@@ -173,16 +196,21 @@ struct RoomData
                                                  ["id" : RoomData.RESPONSE_ID_$R13, "value" : localizedResponses.r13.localized],
                                                  ["id" : RoomData.RESPONSE_ID_$R14, "value" : localizedResponses.r14.localized],
                                                  ["id" : RoomData.RESPONSE_ID_$R15, "value" : localizedResponses.r15.localized],
-                                                 ["id" : RoomData.RESPONSE_ID_$R16, "value" : localizedResponses.r16.localized]]
+                                                 ["id" : RoomData.RESPONSE_ID_$R16, "value" : localizedResponses.r16.localized],
+                                                 ["id" : RoomData.RESPONSE_ID_$R17, "value" : localizedResponses.r17.localized],
+                                                 ["id" : RoomData.RESPONSE_ID_$R18, "value" : localizedResponses.r18.localized],
+                                                 ["id" : RoomData.RESPONSE_ID_$R19, "value" : localizedResponses.r19.localized]]
     
     // MARK: CHARACTERISTICS
     static let CHARACTERISTIC_ID_$C1 = "$C1"
     static let CHARACTERISTIC_ID_$C2 = "$C2"
     static let CHARACTERISTIC_ID_$C3 = "$C3"
+    static let CHARACTERISTIC_ID_$C4 = "$C4"
     
     static let characteristics: [[String : Any]] = [["id" : RoomData.CHARACTERISTIC_ID_$C1, "value" : ["exp" : 10, "hp" : 2, "gold" : 5]],
                                                     ["id" : RoomData.CHARACTERISTIC_ID_$C2, "value" : ["exp" : 2, "hp" : 0, "gold" : 3]],
-                                                    ["id" : RoomData.CHARACTERISTIC_ID_$C3, "value" : ["exp" : 2, "hp" : 3, "gold" : 0]]]
+                                                    ["id" : RoomData.CHARACTERISTIC_ID_$C3, "value" : ["exp" : 2, "hp" : 3, "gold" : 0]],
+                                                    ["id" : RoomData.CHARACTERISTIC_ID_$C4, "value" : ["exp" : 10, "hp" : 5, "gold" : 12]]]
     
     // MARK: DIRECTIONS
     static let DIRECTION_ID_$N = "$N"
@@ -224,9 +252,173 @@ struct RoomData
             return R4.dataIT
         case "room_004_en":
             return R4.dataEN
+        case "room_005_it":
+            return R5.dataIT
+        case "room_005_en":
+            return R5.dataEN
+        case "room_006_it":
+            return R6.dataIT
+        case "room_006_en":
+            return R6.dataEN
+        case "room_007_it":
+            return R7.dataIT
+        case "room_007_en":
+            return R7.dataEN
+        case "room_008_it":
+            return R8.dataIT
+        case "room_008_en":
+            return R8.dataEN
+        case "room_009_it":
+            return R9.dataIT
+        case "room_009_en":
+            return R9.dataEN
+        case "room_010_it":
+            return R10.dataIT
+        case "room_010_en":
+            return R10.dataEN
+        case "room_011_it":
+            return R11.dataIT
+        case "room_011_en":
+            return R11.dataEN
+        case "room_012_it":
+            return R12.dataIT
+        case "room_012_en":
+            return R12.dataEN
+        case "room_013_it":
+            return R13.dataIT
+        case "room_013_en":
+            return R13.dataEN
+        case "room_014_it":
+            return R14.dataIT
+        case "room_014_en":
+            return R14.dataEN
+        case "room_015_it":
+            return R15.dataIT
+        case "room_015_en":
+            return R15.dataEN
+        case "room_016_it":
+            return R16.dataIT
+        case "room_016_en":
+            return R16.dataEN
+        case "room_017_it":
+            return R17.dataIT
+        case "room_017_en":
+            return R17.dataEN
+        case "room_018_it":
+            return R18.dataIT
+        case "room_018_en":
+            return R18.dataEN
+        case "room_019_it":
+            return R19.dataIT
+        case "room_019_en":
+            return R19.dataEN
+        case "room_020_it":
+            return R20.dataIT
+        case "room_020_en":
+            return R20.dataEN
+        case "room_021_it":
+            return R21.dataIT
+        case "room_021_en":
+            return R21.dataEN
+        case "room_022_it":
+            return R22.dataIT
+        case "room_022_en":
+            return R22.dataEN
+        case "room_023_it":
+            return R23.dataIT
+        case "room_023_en":
+            return R23.dataEN
+        case "room_024_it":
+            return R24.dataIT
+        case "room_024_en":
+            return R24.dataEN
+        case "room_025_it":
+            return R25.dataIT
+        case "room_025_en":
+            return R25.dataEN
+        case "room_026_it":
+            return R26.dataIT
+        case "room_026_en":
+            return R26.dataEN
+        case "room_027_it":
+            return R27.dataIT
+        case "room_027_en":
+            return R27.dataEN
+        case "room_028_it":
+            return R28.dataIT
+        case "room_028_en":
+            return R28.dataEN
         default:
             return nil
         }
     }
+    
+    static let RoomMapSize: CGSize = CGSize(width: RoomData.mapRoomWidth, height: RoomData.mapRoomHeight)
+    
+    static let RoomStep: CGFloat = RoomData.spaceBetweenRoom + RoomData.RoomMapSize.width
+    
+    static let MapWidth: CGFloat = (RoomData.mapRoomWidth * RoomData.axisXRoomNumber) + ((RoomData.axisXRoomNumber + 1) * RoomData.spaceBetweenRoom)
+    static let MapHeight: CGFloat = (RoomData.mapRoomHeight * RoomData.axisYRoomNumber) + ((RoomData.axisYRoomNumber + 1) * RoomData.spaceBetweenRoom)
+    
+    static let MapRoomsCoordinateList: [String : MapRoomCoordinate] = ["room_001" : MapRoomCoordinate(coordX: 0.0,
+                                                                                                      coordY: 0.0,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: false,
+                                                                                                      toWest: false),
+                                                                       "room_002" : MapRoomCoordinate(coordX: 0.0,
+                                                                                                      coordY: RoomData.RoomStep.toNegative(),
+                                                                                                      toNorth: false,
+                                                                                                      toEast: true,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_003" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: RoomData.RoomStep.toNegative(),
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: true),
+                                                                       "room_004" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: (RoomData.RoomStep * 2).toNegative(),
+                                                                                                      toNorth: false,
+                                                                                                      toEast: true,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_005" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: (RoomData.RoomStep * 2).toNegative(),
+                                                                                                      toNorth: false,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: true),
+                                                                       "room_006" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: RoomData.RoomStep.toNegative(),
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_007" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: 0.0,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_008" : MapRoomCoordinate(coordX: (RoomData.RoomStep * 2),
+                                                                                                      coordY: RoomData.RoomStep,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: false,
+                                                                                                      toWest: true),
+                                                                       "room_009" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: 0.0,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: false,
+                                                                                                      toSouth: true,
+                                                                                                      toWest: false),
+                                                                       "room_010" : MapRoomCoordinate(coordX: RoomData.RoomStep,
+                                                                                                      coordY: RoomData.RoomStep,
+                                                                                                      toNorth: true,
+                                                                                                      toEast: true,
+                                                                                                      toSouth: false,
+                                                                                                      toWest: true)]
 }
 

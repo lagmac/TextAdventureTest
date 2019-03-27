@@ -122,12 +122,7 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
         {
             roomObject.stringRange = characterRange
             self.selectedObject = roomObject
-            
-            if let roc = selectedObject!.characteristic
-            {
-                self.updatePlayerCharacteristics(withValue: roc)
-            }
-            
+
             scene?.responseRoomObjectRequest(selectedObject!)
         }
         else if let linkObject = room.getRoomLinks(forURL: id)
@@ -176,6 +171,10 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
             switch action.id!
             {
             case RoomData.ACTION_ID_$A2:
+                if let roc = selectedObject!.characteristic
+                {
+                    self.updatePlayerCharacteristics(withValue: roc)
+                }
                 addObjectToPlayerInventory()
                 room.updateDescription(selectedObject!)
                 addVisitedRoom()
@@ -184,6 +183,9 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
                 break
             case RoomData.ACTION_ID_$A3:
                 removeObjectFromPlayerInventory()
+                break
+            case RoomData.ACTION_ID_$A8:
+                scene?.responseToStartAttack(withOutcome: NSLocalizedString("RESPONSE_START_COMBAT", comment: ""))
                 break
             default:
                 break
@@ -306,6 +308,75 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
             
             scene?.manageFatalError(error.localizedDescription)
         }
+    }
+    
+    func requestStartAttack()
+    {
+        var playerTurn: Bool = true
+        var numberOfTurns: Int = GlobalConstants.INT_ZERO
+        var playerHits: Int = GlobalConstants.INT_ZERO
+        var enemyHits: Int = GlobalConstants.INT_ZERO
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+            
+            if playerTurn
+            {
+                let result = self.playerAttack()
+                playerHits.increment(byValue: result)
+                playerTurn = false
+            }
+            else
+            {
+                let result = self.enemyAttack()
+                enemyHits.increment(byValue: result)
+                playerTurn = true
+            }
+            
+            numberOfTurns.increment(byValue: 1)
+            
+            if self.isCombatFinished(numberOfTurns)
+            {
+                t.invalidate()
+                
+                if playerHits > enemyHits
+                {
+                    let response = NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") + "(\(playerHits) vs \(enemyHits))"
+                    self.scene?.responseToEndAttackWithVictory(withOutcome: response, points: enemyHits)
+                }
+                else
+                {
+                    let response = NSLocalizedString("RESPONSE_FINISHED_COMBACT_WIN", comment: "") + "(\(enemyHits) vs \(playerHits))"
+                    self.scene?.responseToEndAttackWithDefeat(withOutcome: response, points: enemyHits)
+                }
+            }
+        }
+    }
+    
+    func requestPerformCombatEnd(withVictory isVictory: Bool, points: Int)
+    {
+        if isVictory
+        {
+            if let roc = selectedObject!.characteristic
+            {
+                self.updatePlayerCharacteristics(withValue: roc)
+            }
+            
+            let tirednessIncreaseValue = Float(points) * PlayerData.TIREDNESS_PER_POINTS_DAMAGES
+            player?.updateTiredness(withValue: tirednessIncreaseValue)
+            
+            room.updateDescription(selectedObject!)
+            scene?.responseToRoomDescriptionChanged(withNewDescription: room.description())
+        }
+        else
+        {
+            let healthDecreaseValue = Float(points) * PlayerData.HEALTH_PER_POINTS_DAMAGES
+            player?.updateHealth(withValue: healthDecreaseValue.toNegative())
+        }
+        
+        addVisitedRoom()
+        resetSelectedObject()
+        
+        self.playerUpdated()
     }
     
     private func playAudio(_ value: Bool)
@@ -442,4 +513,47 @@ class MainSceneInteractor: AudioManagerDelegate, MainSceneBusinessLogic {
         
         player?.addVisitedRoom(tr)
     }
+    
+    private func playerAttack() -> Int
+    {
+        let hit = TAA.CalculateHitChance(fromPlayerTiredness: (self.player?.tiredness)!)
+        
+        if hit
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_ENEMY", comment: ""))
+            return 1
+        }
+        else
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_ENEMY", comment: ""))
+            return 0
+        }
+    }
+    
+    private func enemyAttack() -> Int
+    {
+        let evade = TAA.CaluclateEvadeChance(fromPlayerHealth: (self.player?.health)!)
+        
+        if evade
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_MISSED_PLAYER", comment: ""))
+            return 0
+        }
+        else
+        {
+            self.scene?.responseToOnAttack(withOutcome: NSLocalizedString("RESPONSE_HIT_PLAYER", comment: ""))
+            return 1
+        }
+    }
+    
+    private func isCombatFinished(_ numberOfTurns: Int) -> Bool
+    {
+        if numberOfTurns == GlobalConstants.BATTLE_SYSTEM_MAX_TURNS_NUMBERS
+        {
+            return true
+        }
+        
+        return false
+    }
 }
+

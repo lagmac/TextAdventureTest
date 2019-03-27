@@ -32,6 +32,7 @@ SETTINGS_OPTIONS_AUDIO_ON = "Attiva audio";
 SETTINGS_OPTIONS_AUDIO_OFF = "Disattiva audio";
 SETTINGS_OPTIONS_STATISTIC = "Statistiche";
 SETTINGS_OPTIONS_SELECTOR_DISCARD = "Annulla";
+SETTINGS_OPTIONS_SELECTOR_SHOW_MAP = "Mostra mappa";
 
 GENDER_MALE = "Uomo";
 GENDER_FEMALE = "Donna";
@@ -50,6 +51,7 @@ ACTION_EXAMINES = "Esamina";
 ACTION_CLOSE = "Chiudi";
 ACTION_READ = "Leggi";
 ACTION_USE = "Usa";
+ACTION_ATTACK = "Attacca";
 
 NORTH_DIRECTION = "Nord";
 EAST_DIRECTION = "Est";
@@ -63,6 +65,8 @@ RESPONSE_DOOR_ALREADY_OPEN = "La porta è già aperta.";
 RESPONSE_DOOR_ALREADY_CLOSED = "La porta è già chiusa.";
 RESPONSE_SHEET_ON_DOOR = "Attaccato alla porta c'è un foglio.";
 RESPONSE_DOOR_KEY_LOCKED = "La porta è chiusa a chiave.";
+RESPONSE_DOOR_NOT_OPENABLE = "La porta è chiusa e non può essere aperta.";
+RESPONSE_DOOR_LOCKED_ROOM1 = "Non c'è serratura ne maniglia.";
 RESPONSE_NAIL_TAKE = "Hai preso un chiodo.";
 RESPONSE_NAIL_RUSTY = "Il chiodo è arruginito e ricurvo.";
 RESPONSE_SHEET_TAKE = "Hai preso il foglio.";
@@ -72,12 +76,19 @@ RESPONSE_BOTTLE_TAKE = "Hai preso la bottiglia.";
 RESPONSE_WATER_IN_BOTTLE = "Il liquido nella bottiglia è acqua.";
 RESPONSE_OBJECT_USED = "Hai usato l'oggetto.";
 RESPONSE_OBJECT_REMOVED_FROM_INVENTORY = "L'oggetto è stato rimosso dall'inventario.";
-
+RESPONSE_START_COMBAT = "COMBATTIMENTO INIZIATO";
+RESPONSE_HIT_ENEMY = "NEMICO COLPITO !!!";
+RESPONSE_MISSED_ENEMY = "NEMICO MANCATO !!!";
+RESPONSE_HIT_PLAYER = "GIOCATORE COLPITO !!!";
+RESPONSE_MISSED_PLAYER = "GIOCATORE MANCATO !!!";
+RESPONSE_FINISHED_COMBACT_WIN = "Combattimento finito. Hai sconfitto la creatura. ";
+RESPONSE_FINISHED_COMBACT_LOOSE = "Combattimento finito. Sei stato sconfitto. ";
 
 OBJECT_DOOR = "porta";
 OBJECT_SHEET = "foglio";
 OBJECT_NAIL = "chiodo";
 OBJECT_BOTTLE = "bottiglia";
+OBJECT_CREATURE = "creatura";
 
 OF_LABEL = " di ";
 NOT_AVAILABLE = "N/D";
@@ -89,3 +100,5 @@ PARSE_GENERIC_ERROR = "Si è verificato un errore durante il parsing dei dati !!
 
 ALERT_ERROR_TITLE = "ERRORE FATALE";
 ALERT_ERROR_GENERIC_MESSAGE = "Si è verificato un errore. Impossibile continuare.";
+
+MAP_ROOM_NO_NAME = "Nessun nome !!!";

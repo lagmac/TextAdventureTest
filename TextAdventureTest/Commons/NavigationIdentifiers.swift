@@ -19,4 +19,5 @@ enum SceneIdentifier: String
     case CreatePlayerScene
     case HomeScene
     case StatisticScene
+    case MapScene
 }

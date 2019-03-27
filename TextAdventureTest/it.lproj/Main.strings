@@ -109,3 +109,9 @@
 
 /* Class = "UILabel"; text = "Stanchezza"; ObjectID = "Htd-dA-emV"; */
 "Htd-dA-emV.text" = "Stanchezza";
+
+/* Class = "UILabel"; text = "Ver 1.0  (01A21AX19)"; ObjectID = "db2-Xq-SZR"; */
+"db2-Xq-SZR.text" = "Ver 1.0  (01E25AX19)";
+
+/* Class = "UILabel"; text = "Mappa"; ObjectID = "7AD-lb-c3Q"; */
+"7AD-lb-c3Q.text" = "Mappa";
