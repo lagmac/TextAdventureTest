@@ -77,59 +77,97 @@ public class TAA
         let rg4 = (0.6..<0.8)
         let rg5 = (0.8...1.0)
         
+        var modifier: Float = 0.0
+        
         // ****** HEALTH VALUE MODIFICATOR ******
-        
-        if rg1.contains(Double(healthValue))
+        switch Double(healthValue)
         {
-            m1 = (PlayerData.MAX_HEALTH - healthValue) / 2
+        case rg1:
+            modifier = 2.0
+        case rg2:
+            modifier = 3.0
+        case rg3:
+            modifier = 4.0
+        case rg4:
+            modifier = 5.0
+        case rg5:
+            modifier = 6.0
+        default:
+            modifier = 1.0
         }
         
-        if rg2.contains(Double(healthValue))
+        m1 = (PlayerData.MAX_HEALTH - healthValue) / modifier
+        
+        // ****** TIREDNESS VALUE MODIFICATOR ******
+        switch Double(tirednessValue)
         {
-            m1 = (PlayerData.MAX_HEALTH - healthValue) / 3
+        case rg1:
+            modifier = 6.0
+        case rg2:
+            modifier = 5.0
+        case rg3:
+            modifier = 4.0
+        case rg4:
+            modifier = 3.0
+        case rg5:
+            modifier = 2.0
+        default:
+            modifier = 1.0
         }
         
-        if rg3.contains(Double(healthValue))
-        {
-            m1 = (PlayerData.MAX_HEALTH - healthValue) / 4
-        }
+        m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / modifier
         
-        if rg4.contains(Double(healthValue))
-        {
-            m1 = (PlayerData.MAX_HEALTH - healthValue) / 5
-        }
-        
-        if rg5.contains(Double(healthValue))
-        {
-            m1 = (PlayerData.MAX_HEALTH - healthValue) / 6
-        }
+//        if rg1.contains(Double(healthValue))
+//        {
+//            m1 = (PlayerData.MAX_HEALTH - healthValue) / 2
+//        }
+//
+//        if rg2.contains(Double(healthValue))
+//        {
+//            m1 = (PlayerData.MAX_HEALTH - healthValue) / 3
+//        }
+//
+//        if rg3.contains(Double(healthValue))
+//        {
+//            m1 = (PlayerData.MAX_HEALTH - healthValue) / 4
+//        }
+//
+//        if rg4.contains(Double(healthValue))
+//        {
+//            m1 = (PlayerData.MAX_HEALTH - healthValue) / 5
+//        }
+//
+//        if rg5.contains(Double(healthValue))
+//        {
+//            m1 = (PlayerData.MAX_HEALTH - healthValue) / 6
+//        }
         
         // ****** TIREDNESS VALUE MODIFICATOR ******
         
-        if rg1.contains(Double(tirednessValue))
-        {
-            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 6
-        }
-        
-        if rg2.contains(Double(tirednessValue))
-        {
-            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 5
-        }
-        
-        if rg3.contains(Double(tirednessValue))
-        {
-            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 4
-        }
-        
-        if rg4.contains(Double(tirednessValue))
-        {
-            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 3
-        }
-        
-        if rg5.contains(Double(tirednessValue))
-        {
-            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 2
-        }
+//        if rg1.contains(Double(tirednessValue))
+//        {
+//            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 6
+//        }
+//
+//        if rg2.contains(Double(tirednessValue))
+//        {
+//            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 5
+//        }
+//
+//        if rg3.contains(Double(tirednessValue))
+//        {
+//            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 4
+//        }
+//
+//        if rg4.contains(Double(tirednessValue))
+//        {
+//            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 3
+//        }
+//
+//        if rg5.contains(Double(tirednessValue))
+//        {
+//            m2 = (PlayerData.MAX_TIREDNESS - tirednessValue) / 2
+//        }
         
         // ***** NEW STRENGHT DECREMENT VALUE CALCULATION *****
         
