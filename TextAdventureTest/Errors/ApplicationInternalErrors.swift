@@ -18,9 +18,9 @@ enum ApplicationInternalErrors: Error
         switch self
         {
         case .noAudioFileLoaded:
-            return "UNABLE TO LOAD AUDIO FILE !!!"
+            return ApplicationError.noAudioFileLoaded.localized
         case .audioManagerUnavailable:
-            return "AUDIO MANAGER UNAVAILABLE !!!"
+            return ApplicationError.audioManagerUnavailable.localized
         }
         
     }

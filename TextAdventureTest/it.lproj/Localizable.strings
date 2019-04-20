@@ -102,3 +102,6 @@ ALERT_ERROR_TITLE = "ERRORE FATALE";
 ALERT_ERROR_GENERIC_MESSAGE = "Si è verificato un errore. Impossibile continuare.";
 
 MAP_ROOM_NO_NAME = "Nessun nome !!!";
+
+AUDIO_LOAD_ERROR = "Impossibile riprodurre l'audio !!!";
+AUDIO_MANAGER_UNAVAILABLE = "Audio manager non disponibile !!!";
