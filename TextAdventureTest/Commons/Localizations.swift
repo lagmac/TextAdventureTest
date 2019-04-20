@@ -8,6 +8,23 @@
 
 import Foundation
 
+enum ApplicationError: Int
+{
+    case noAudioFileLoaded = 1
+    case audioManagerUnavailable = 2
+    
+    var localized: String
+    {
+        switch self
+        {
+        case .noAudioFileLoaded:
+            return NSLocalizedString("AUDIO_LOAD_ERROR", comment: "")
+        case .audioManagerUnavailable:
+            return NSLocalizedString("AUDIO_MANAGER_UNAVAILABLE", comment: "")
+        }
+    }
+}
+
 enum ParseError: Int
 {
     case noDataToParse = 1
